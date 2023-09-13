@@ -7,7 +7,7 @@ const { lumiere, tenebres, air, eau, feu, terre } = GEMMES;
 
 export type profileModifType = {
   classe: CLASSES;
-  caracs: [CARACS, number][];
+  caracModifs: [CARACS, number][];
   capacities: string[];
   cost: number;
 };
@@ -20,9 +20,9 @@ export type FactionType = {
   litany: string;
   profileModifs: profileModifType[];
   options: [string, number][];
-}[];
+};
 
-export const factions: FactionType = [
+export const factions: FactionType[] = [
   {
     name: 'Alchimiste de Dirz',
     alliance: meandresTenebres,
@@ -30,7 +30,7 @@ export const factions: FactionType = [
     baseElements: [tenebres],
     forbidenElements: [air, lumiere],
     litany: 'Arh-Tolth',
-    profileModifs: [{ classe: all, caracs: [], capacities: ['Mutagène/2'], cost: 6 }],
+    profileModifs: [{ classe: all, caracModifs: [], capacities: ['Mutagène/2'], cost: 6 }],
     options: [],
   },
   {
@@ -43,7 +43,7 @@ export const factions: FactionType = [
     profileModifs: [
       {
         classe: all,
-        caracs: [
+        caracModifs: [
           [MOU, 2.5],
           [INI, 1],
           [PEU, 2],
@@ -51,8 +51,8 @@ export const factions: FactionType = [
         capacities: ['Conscience', 'Toxique/3', 'Grande taille'],
         cost: 20,
       },
-      { classe: shooter, caracs: [[TIR, 1]], capacities: [], cost: 4 },
-      { classe: magician, caracs: [[POU, 1]], capacities: [], cost: 7 },
+      { classe: shooter, caracModifs: [[TIR, 1]], capacities: [], cost: 4 },
+      { classe: magician, caracModifs: [[POU, 1]], capacities: [], cost: 7 },
     ],
     options: [],
   },
@@ -66,7 +66,7 @@ export const factions: FactionType = [
     profileModifs: [
       {
         classe: all,
-        caracs: [[DIS, -1]],
+        caracModifs: [[DIS, -1]],
         capacities: ['Toxique/0', 'Possédé'],
         cost: 6,
       },
@@ -83,7 +83,7 @@ export const factions: FactionType = [
     profileModifs: [
       {
         classe: all,
-        caracs: [],
+        caracModifs: [],
         capacities: [],
         cost: 0,
       },
@@ -100,7 +100,7 @@ export const factions: FactionType = [
     profileModifs: [
       {
         classe: all,
-        caracs: [
+        caracModifs: [
           [MOU, 5],
           [RES, 1],
           [PEU, 2],
@@ -125,7 +125,7 @@ export const factions: FactionType = [
     profileModifs: [
       {
         classe: all,
-        caracs: [
+        caracModifs: [
           [MOU, 2.5],
           [DIS, -2],
         ],
@@ -148,7 +148,7 @@ export const factions: FactionType = [
     profileModifs: [
       {
         classe: all,
-        caracs: [
+        caracModifs: [
           [MOU, 2.5],
           [COU, 1],
           [DIS, 1],
@@ -156,7 +156,7 @@ export const factions: FactionType = [
         capacities: ['Concentration/2 (INI/ATT/DEF/COU)'],
         cost: 10,
       },
-      { classe: shooter, caracs: [[TIR, 1]], capacities: [], cost: 4 },
+      { classe: shooter, caracModifs: [[TIR, 1]], capacities: [], cost: 4 },
     ],
     options: [
       ['Arme Héliante', 1],
@@ -175,14 +175,14 @@ export const factions: FactionType = [
     profileModifs: [
       {
         classe: all,
-        caracs: [
+        caracModifs: [
           [MOU, 2.5],
           [DIS, -2],
         ],
         capacities: ['Régénération/5'],
         cost: 4,
       },
-      { classe: shooter, caracs: [[TIR, 1]], capacities: [], cost: 4 },
+      { classe: shooter, caracModifs: [[TIR, 1]], capacities: [], cost: 4 },
     ],
     options: [
       ['Arme Symbiotique', 1],
@@ -200,7 +200,7 @@ export const factions: FactionType = [
     profileModifs: [
       {
         classe: all,
-        caracs: [
+        caracModifs: [
           [INI, 1],
           [FOR, -1],
           [RES, -1],
@@ -209,8 +209,8 @@ export const factions: FactionType = [
         capacities: ['Instinct de survie/6', 'Petite taille'],
         cost: -1,
       },
-      { classe: magician, caracs: [[POU, 1]], capacities: [], cost: 5 },
-      { classe: priest, caracs: [[FOI, 1]], capacities: [], cost: 5 },
+      { classe: magician, caracModifs: [[POU, 1]], capacities: [], cost: 5 },
+      { classe: priest, caracModifs: [[FOI, 1]], capacities: [], cost: 5 },
     ],
     options: [
       ['Carburateur', 0],
@@ -228,7 +228,7 @@ export const factions: FactionType = [
     profileModifs: [
       {
         classe: all,
-        caracs: [
+        caracModifs: [
           [FOR, -1],
           [RES, 1],
           [DIS, 2],
@@ -238,7 +238,7 @@ export const factions: FactionType = [
       },
       {
         classe: priest,
-        caracs: [[FOI, 1]],
+        caracModifs: [[FOI, 1]],
         capacities: ['Illuminé'],
         cost: 6,
       },
@@ -258,13 +258,13 @@ export const factions: FactionType = [
     profileModifs: [
       {
         classe: all,
-        caracs: [[DIS, -1]],
+        caracModifs: [[DIS, -1]],
         capacities: ['Acharné'],
         cost: 4,
       },
       {
         classe: priest,
-        caracs: [[FOI, 1]],
+        caracModifs: [[FOI, 1]],
         capacities: ['Illuminé'],
         cost: 5,
       },
@@ -281,7 +281,7 @@ export const factions: FactionType = [
     profileModifs: [
       {
         classe: all,
-        caracs: [
+        caracModifs: [
           [MOU, 2.5],
           [FOR, 1],
           [PEU, 2],
@@ -307,7 +307,7 @@ export const factions: FactionType = [
     profileModifs: [
       {
         classe: all,
-        caracs: [
+        caracModifs: [
           [INI, 1],
           [RES, -1],
           [DIS, -1],
@@ -328,13 +328,13 @@ export const factions: FactionType = [
     profileModifs: [
       {
         classe: all,
-        caracs: [[COU, 1]],
+        caracModifs: [[COU, 1]],
         capacities: ['Bravoure'],
         cost: 3,
       },
       {
         classe: magician,
-        caracs: [[POU, 2]],
+        caracModifs: [[POU, 2]],
         capacities: [],
         cost: 13,
       },
@@ -351,7 +351,7 @@ export const factions: FactionType = [
     profileModifs: [
       {
         classe: all,
-        caracs: [
+        caracModifs: [
           [MOU, -2.5],
           [INI, -1],
           [PEU, 3],
@@ -362,7 +362,7 @@ export const factions: FactionType = [
       },
       {
         classe: magician,
-        caracs: [[POU, 1]],
+        caracModifs: [[POU, 1]],
         capacities: ['Invocateur/2'],
         cost: 7,
       },
@@ -383,13 +383,13 @@ export const factions: FactionType = [
     profileModifs: [
       {
         classe: all,
-        caracs: [[PEU, 1]],
+        caracModifs: [[PEU, 1]],
         capacities: ['Résolution/1'],
         cost: 4,
       },
       {
         classe: magician,
-        caracs: [[POU, 1]],
+        caracModifs: [[POU, 1]],
         capacities: ['Invocateur/2'],
         cost: 7,
       },
@@ -410,7 +410,7 @@ export const factions: FactionType = [
     profileModifs: [
       {
         classe: all,
-        caracs: [
+        caracModifs: [
           [MOU, -2.5],
           [PEU, 1],
         ],
@@ -419,7 +419,7 @@ export const factions: FactionType = [
       },
       {
         classe: priest,
-        caracs: [[FOI, 1]],
+        caracModifs: [[FOI, 1]],
         capacities: ['Invocateur/2'],
         cost: 7,
       },
@@ -436,7 +436,7 @@ export const factions: FactionType = [
     profileModifs: [
       {
         classe: all,
-        caracs: [
+        caracModifs: [
           [MOU, -2.5],
           [INI, -2],
           [DIS, 2],
@@ -461,7 +461,7 @@ export const factions: FactionType = [
     profileModifs: [
       {
         classe: all,
-        caracs: [[FOR, 1]],
+        caracModifs: [[FOR, 1]],
         capacities: ['Brute épaisse'],
         cost: 4,
       },
@@ -482,7 +482,7 @@ export const factions: FactionType = [
     profileModifs: [
       {
         classe: all,
-        caracs: [[FOR, 1]],
+        caracModifs: [[FOR, 1]],
         capacities: ['Brute épaisse', 'Endurance'],
         cost: 6,
       },
@@ -499,7 +499,7 @@ export const factions: FactionType = [
     profileModifs: [
       {
         classe: all,
-        caracs: [
+        caracModifs: [
           [MOU, 5],
           [FOR, 2],
           [RES, -1],

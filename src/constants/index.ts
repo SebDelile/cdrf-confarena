@@ -1,3 +1,11 @@
+import { EquipmentType } from './equipments';
+import { FactionType } from './factions';
+import { ProfileType } from './profiles';
+
+export const JOIN_ELEMENT = ' · ';
+
+export type SelectMenuOptionType = FactionType | EquipmentType | ProfileType;
+
 export enum CARACS {
   MOU = 'MOU',
   INI = 'INI',

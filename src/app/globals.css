@@ -8,9 +8,13 @@ body {
 }
 
 .form-container {
-  @apply flex flex-col justify-start items-start;
+  @apply flex flex-col justify-start items-start w-full;
 }
 
 .form-input {
-  @apply bg-white border border-black px-4 py-2 shadow-md rounded-md;
+  @apply w-full px-4 py-2 bg-white border border-black shadow-md rounded-md;
+}
+
+.min-w-6 {
+  min-width: 1.5rem;
 }

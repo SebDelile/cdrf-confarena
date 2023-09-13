@@ -1,4 +1,4 @@
-import { CARACS, CLASSES } from '.';
+import { CARACS, CLASSES, SelectMenuOptionType } from '.';
 
 const { warrior, shooter, magician, priest, warriorShooter, warriorMagician, warriorPriest } = CLASSES;
 const { MOU, INI, ATT, FOR, DEF, RES, COU, PEU, DIS, TIR, POU, FOI } = CARACS;

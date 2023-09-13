@@ -1,4 +1,4 @@
-import { CLASSES, CARACS, ALLIANCES, GEMMES } from '.';
+import { CLASSES, CARACS, ALLIANCES, GEMMES, SelectMenuOptionType } from '.';
 
 const { all, shooter, magician, priest } = CLASSES;
 const { MOU, INI, FOR, RES, COU, PEU, DIS, TIR, POU, FOI } = CARACS;

@@ -43,9 +43,9 @@ export const SelectMenu = ({ options, selectedValue, onChange, label, fullDispla
                       value={option}
                       disabled={undefined}
                       className={({ active, selected }) =>
-                        `cursor-pointer px-3 py-1 ${active ? 'bg-blue-400' : ''} ${
-                          selected && !active ? 'bg-blue-200' : ''
-                        }`
+                        `cursor-pointer px-3 py-3 border-black border-opacity-20 border-b-2 last:border-b-0 ${
+                          active ? 'bg-blue-400' : ''
+                        } ${selected && !active ? 'bg-blue-200' : ''}`
                       }
                     >
                       {optionRenderer(option)}

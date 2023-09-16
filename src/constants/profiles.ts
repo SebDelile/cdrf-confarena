@@ -1,19 +1,17 @@
-import { CARACS, CLASSES, SelectMenuOptionType } from '.';
+import { CARACS, CLASSES } from '.';
 
 const { warrior, shooter, magician, priest, warriorShooter, warriorMagician, warriorPriest } = CLASSES;
 const { MOU, INI, ATT, FOR, DEF, RES, COU, PEU, DIS, TIR, POU, FOI } = CARACS;
 
 export type ProfileType = {
-  name: string;
-  classe: CLASSES;
+  name: CLASSES;
   caracs: { [carac in CARACS]: number | null };
   capacities: string[];
 };
 
 export const profiles: ProfileType[] = [
   {
-    name: 'Guerrier',
-    classe: warrior,
+    name: warrior,
     caracs: {
       [MOU]: 10,
       [INI]: 4,
@@ -31,8 +29,7 @@ export const profiles: ProfileType[] = [
     capacities: ['Enchainement/2', 'Contre-attaque', 'Coup de maître/0'],
   },
   {
-    name: 'Tireur',
-    classe: shooter,
+    name: shooter,
     caracs: {
       [MOU]: 10,
       [INI]: 4,
@@ -50,8 +47,7 @@ export const profiles: ProfileType[] = [
     capacities: ['Enchainement/1', 'Rechargement rapide/1', 'Visée'],
   },
   {
-    name: 'Magicien',
-    classe: magician,
+    name: magician,
     caracs: {
       [MOU]: 10,
       [INI]: 4,
@@ -69,8 +65,7 @@ export const profiles: ProfileType[] = [
     capacities: ['Enchainement/1', "Initié d'un Elément/un Grimoire", 'Maîtrise des Arcane'],
   },
   {
-    name: 'Fidèle',
-    classe: priest,
+    name: priest,
     caracs: {
       [MOU]: 10,
       [INI]: 4,
@@ -88,8 +83,7 @@ export const profiles: ProfileType[] = [
     capacities: ['Enchainement/1', 'Dévot de son Dieu/infini', 'Iconoclaste'],
   },
   {
-    name: 'Guerrier-tireur',
-    classe: warriorShooter,
+    name: warriorShooter,
     caracs: {
       [MOU]: 10,
       [INI]: 4,
@@ -107,8 +101,7 @@ export const profiles: ProfileType[] = [
     capacities: ['Enchainement/2', 'Contre-attaque', 'Coup de maître/0'],
   },
   {
-    name: 'Guerrier-mage',
-    classe: warriorMagician,
+    name: warriorMagician,
     caracs: {
       [MOU]: 10,
       [INI]: 4,
@@ -132,8 +125,7 @@ export const profiles: ProfileType[] = [
     ],
   },
   {
-    name: 'Moine-guerrier',
-    classe: warriorPriest,
+    name: warriorPriest,
     caracs: {
       [MOU]: 10,
       [INI]: 4,

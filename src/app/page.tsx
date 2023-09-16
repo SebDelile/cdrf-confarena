@@ -5,10 +5,12 @@ import { accessories } from '@/constants/equipments/accessories';
 import { EquipmentType } from '@/constants/equipments';
 import { SelectMenu } from './components/SelectMenu';
 import { FactionType, factions } from '@/constants/factions';
+import { ProfileType, profiles } from '@/constants/profiles';
 
 export default function Home() {
   const [selectedAccessory, setSelectedAccessory] = useState<EquipmentType | null>(null);
   const [selectedFaction, setSelectedFaction] = useState<FactionType | null>(null);
+  const [selectedProfile, setSelectedProfile] = useState<ProfileType | null>(null);
   return (
     <main className="flex min-h-screen flex-col items-center p-24">
       <SelectMenu
@@ -23,6 +25,12 @@ export default function Home() {
         options={factions}
         selectedValue={selectedFaction}
         onChange={(newValue) => setSelectedFaction(newValue as FactionType)}
+      />
+      <SelectMenu
+        label="Classe"
+        options={profiles}
+        selectedValue={selectedProfile}
+        onChange={(newValue) => setSelectedProfile(newValue as ProfileType)}
       />
     </main>
   );

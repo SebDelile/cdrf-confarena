@@ -1,7 +1,9 @@
-import { CARACS } from '..';
-import { EquipmentType } from '.';
+import { CARACS, CLASSES } from '..';
+import { EquipmentType, equipementRestrictions } from '.';
 
 const { MOU, INI, DEF, RES } = CARACS;
+const { shooter, magician, priest } = CLASSES;
+const { classe } = equipementRestrictions;
 
 export const body: EquipmentType[] = [
   {
@@ -24,6 +26,11 @@ export const body: EquipmentType[] = [
     ],
     capacities: [],
     cost: 8,
+    forbiddenTo: [
+      [classe, shooter],
+      [classe, magician],
+      [classe, priest],
+    ],
   },
   {
     name: 'Epaulière à piques',

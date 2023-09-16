@@ -84,12 +84,6 @@ export const accessories: EquipmentType[] = [
     reservedTo: [[taille, 'grande']],
   },
   {
-    name: "Symbole d'officier",
-    caracModifs: [],
-    capacities: ['Aguerri'],
-    cost: 15,
-  },
-  {
     name: 'Bénédiction divine',
     caracModifs: [],
     capacities: ['Aimé des Dieux'],
@@ -106,12 +100,6 @@ export const accessories: EquipmentType[] = [
     caracModifs: [],
     capacities: ['Mutagène/0', 'Toxique/1'],
     cost: 12,
-  },
-  {
-    name: 'Collier de dents',
-    caracModifs: [],
-    capacities: ['Féroce', 'Possédé'],
-    cost: 7,
   },
   {
     name: 'Bracelets de force',

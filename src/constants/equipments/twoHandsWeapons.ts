@@ -1,7 +1,9 @@
-import { CARACS } from '..';
-import { EquipmentType } from '.';
+import { CARACS, CLASSES } from '..';
+import { EquipmentType, equipementRestrictions } from '.';
 
 const { ATT, FOR, DEF } = CARACS;
+const { shooter, magician, priest } = CLASSES;
+const { classe } = equipementRestrictions;
 
 export const twoHandsWeapons: EquipmentType[] = [
   {
@@ -18,6 +20,11 @@ export const twoHandsWeapons: EquipmentType[] = [
     ],
     capacities: [],
     cost: 10,
+    forbiddenTo: [
+      [classe, shooter],
+      [classe, magician],
+      [classe, priest],
+    ],
   },
   {
     name: 'Hallebarde',

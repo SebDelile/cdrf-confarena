@@ -1,13 +1,12 @@
 import { ProfileType } from '@/constants/profiles';
 import { formatCapacities } from '@/utils';
-import { Fragment } from 'react';
 
 type PropTypes = {
-  option: ProfileType;
+  value: ProfileType;
 };
 
-export const ProfileRenderer = ({ option }: PropTypes) => {
-  const { name, caracs, capacities } = option;
+export const ProfileRenderer = ({ value }: PropTypes) => {
+  const { name, caracs, capacities } = value;
   return (
     <div className="flex flex-col items-stretch">
       <div className="font-semibold pr-2">{`${name} : `}</div>

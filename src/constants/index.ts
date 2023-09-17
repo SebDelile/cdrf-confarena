@@ -1,10 +1,10 @@
 import { EquipmentType } from './equipments';
-import { FactionType } from './factions';
+import { FactionType, LocalStuffType } from './factions';
 import { ProfileType } from './profiles';
 
 export const JOIN_ELEMENT = ' · ';
 
-export type SelectMenuOptionType = FactionType | EquipmentType | ProfileType;
+export type SelectMenuOptionType = FactionType | EquipmentType | ProfileType | LocalStuffType;
 
 export enum CARACS {
   MOU = 'MOU',

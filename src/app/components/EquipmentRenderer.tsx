@@ -3,13 +3,13 @@ import { EquipmentType } from '@/constants/equipments';
 import { formatCapacities, formatCaracModifiers } from '@/utils';
 
 type PropTypes = {
-  option: EquipmentType;
+  value: EquipmentType;
 };
 
 // TODO: handle forbiddenTo and reservedTo properties
 
-export const EquipmentRenderer = ({ option }: PropTypes) => {
-  const { name, caracModifs, capacities, specialEffect, cost } = option;
+export const EquipmentRenderer = ({ value }: PropTypes) => {
+  const { name, caracModifs, capacities, specialEffect, cost } = value;
   return (
     <div className="flex justify-between items-center">
       <div>

@@ -1,4 +1,4 @@
-import { CLASSES, CARACS, ALLIANCES, GEMMES, SelectMenuOptionType } from '.';
+import { CLASSES, CARACS, ALLIANCES, GEMMES } from '.';
 
 const { all, shooter, magician, priest } = CLASSES;
 const { MOU, INI, FOR, RES, COU, PEU, DIS, TIR, POU, FOI } = CARACS;
@@ -11,15 +11,16 @@ export type profileModifType = {
   capacities: string[];
   cost: number;
 };
+export type LocalStuffType = { name: string; cost: number };
 export type FactionType = {
   name: string;
   alliance: ALLIANCES;
   grimoire: string[];
-  baseElements: string[];
-  forbidenElements: string[];
+  baseElements: GEMMES[];
+  forbidenElements: GEMMES[];
   litany: string;
   profileModifs: profileModifType[];
-  options: [string, number][];
+  localStuff: LocalStuffType[];
 };
 
 export const factions: FactionType[] = [
@@ -31,7 +32,7 @@ export const factions: FactionType[] = [
     forbidenElements: [air, lumiere],
     litany: 'Arh-Tolth',
     profileModifs: [{ classe: all, caracModifs: [], capacities: ['Mutagène/2'], cost: 6 }],
-    options: [],
+    localStuff: [],
   },
   {
     name: 'Alliance Ophidienne (serpent)',
@@ -54,7 +55,7 @@ export const factions: FactionType[] = [
       { classe: shooter, caracModifs: [[TIR, 1]], capacities: [], cost: 4 },
       { classe: magician, caracModifs: [[POU, 1]], capacities: [], cost: 7 },
     ],
-    options: [],
+    localStuff: [],
   },
   {
     name: 'Alliance Ophidienne (humain)',
@@ -71,7 +72,7 @@ export const factions: FactionType[] = [
         cost: 6,
       },
     ],
-    options: [],
+    localStuff: [],
   },
   {
     name: 'Cité franche de Cadwallon',
@@ -88,7 +89,7 @@ export const factions: FactionType[] = [
         cost: 0,
       },
     ],
-    options: [['Equipement supplémentaire', 2]],
+    localStuff: [{ name: 'Equipement supplémentaire', cost: 2 }],
   },
   {
     name: 'Dévoreurs de Vile-Tis (wolfen)',
@@ -110,9 +111,9 @@ export const factions: FactionType[] = [
         cost: 19,
       },
     ],
-    options: [
-      ['1 chaîne au choix', 1],
-      ['Toutes les chaines', 3],
+    localStuff: [
+      { name: '1 chaîne au choix', cost: 1 },
+      { name: 'Toutes les chaines', cost: 3 },
     ],
   },
   {
@@ -133,9 +134,9 @@ export const factions: FactionType[] = [
         cost: 4,
       },
     ],
-    options: [
-      ['1 chaîne au choix', 1],
-      ['Toutes les chaines', 3],
+    localStuff: [
+      { name: '1 chaîne au choix', cost: 1 },
+      { name: 'Toutes les chaines', cost: 3 },
     ],
   },
   {
@@ -158,11 +159,11 @@ export const factions: FactionType[] = [
       },
       { classe: shooter, caracModifs: [[TIR, 1]], capacities: [], cost: 4 },
     ],
-    options: [
-      ['Arme Héliante', 1],
-      ['Armure Héliante', 1],
-      ['Arme de tir Héliante', 1],
-      ['Mécanisme Héliante', 1],
+    localStuff: [
+      { name: 'Arme Héliante', cost: 1 },
+      { name: 'Armure Héliante', cost: 1 },
+      { name: 'Arme de tir Héliante', cost: 1 },
+      { name: 'Mécanisme Héliante', cost: 1 },
     ],
   },
   {
@@ -184,10 +185,10 @@ export const factions: FactionType[] = [
       },
       { classe: shooter, caracModifs: [[TIR, 1]], capacities: [], cost: 4 },
     ],
-    options: [
-      ['Arme Symbiotique', 1],
-      ['Armure Symbiotique', 1],
-      ['Arme de tir Symbiotique', 1],
+    localStuff: [
+      { name: 'Arme Symbiotique', cost: 1 },
+      { name: 'Armure Symbiotique', cost: 1 },
+      { name: 'Arme de tir Symbiotique', cost: 1 },
     ],
   },
   {
@@ -212,10 +213,10 @@ export const factions: FactionType[] = [
       { classe: magician, caracModifs: [[POU, 1]], capacities: [], cost: 5 },
       { classe: priest, caracModifs: [[FOI, 1]], capacities: [], cost: 5 },
     ],
-    options: [
-      ['Carburateur', 0],
-      ['Arme à Naphthe (FOR+1d6)', 3],
-      ['Arme de tir à Naphthe (FORTIR+1d6)', 5],
+    localStuff: [
+      { name: 'Carburateur', cost: 0 },
+      { name: 'Arme à Naphthe (FOR+1d6)', cost: 3 },
+      { name: 'Arme de tir à Naphthe (FORTIR+1d6)', cost: 5 },
     ],
   },
   {
@@ -243,9 +244,9 @@ export const factions: FactionType[] = [
         cost: 6,
       },
     ],
-    options: [
-      ['Lame de Jugement', 1],
-      ['Armure bénie', 1],
+    localStuff: [
+      { name: 'Lame de Jugement', cost: 1 },
+      { name: 'Armure bénie', cost: 1 },
     ],
   },
   {
@@ -269,7 +270,7 @@ export const factions: FactionType[] = [
         cost: 5,
       },
     ],
-    options: [],
+    localStuff: [],
   },
   {
     name: 'Keltois du clan des Drunes (Formor)',
@@ -291,10 +292,10 @@ export const factions: FactionType[] = [
         cost: 11,
       },
     ],
-    options: [
-      ['Arme Formor', 1],
-      ['Armure Formor', 1],
-      ['Talisman Formor', 1],
+    localStuff: [
+      { name: 'Arme Formor', cost: 1 },
+      { name: 'Armure Formor', cost: 1 },
+      { name: 'Talisman Formor', cost: 1 },
     ],
   },
   {
@@ -316,7 +317,7 @@ export const factions: FactionType[] = [
         cost: 4,
       },
     ],
-    options: [],
+    localStuff: [],
   },
   {
     name: "Lions d'Alahan",
@@ -339,7 +340,7 @@ export const factions: FactionType[] = [
         cost: 13,
       },
     ],
-    options: [],
+    localStuff: [],
   },
   {
     name: "Morts-vivants d'Achéron (mort-vivant)",
@@ -367,10 +368,10 @@ export const factions: FactionType[] = [
         cost: 7,
       },
     ],
-    options: [
-      ['Arme Noire', 1],
-      ['Armure Noire', 1],
-      ['Arme de tirNoire', 1],
+    localStuff: [
+      { name: 'Arme Noire', cost: 1 },
+      { name: 'Armure Noire', cost: 1 },
+      { name: 'Arme de tirNoire', cost: 1 },
     ],
   },
   {
@@ -394,10 +395,10 @@ export const factions: FactionType[] = [
         cost: 7,
       },
     ],
-    options: [
-      ['Arme Noire', 1],
-      ['Armure Noire', 1],
-      ['Arme de tirNoire', 1],
+    localStuff: [
+      { name: 'Arme Noire', cost: 1 },
+      { name: 'Armure Noire', cost: 1 },
+      { name: 'Arme de tirNoire', cost: 1 },
     ],
   },
   {
@@ -424,7 +425,7 @@ export const factions: FactionType[] = [
         cost: 7,
       },
     ],
-    options: [],
+    localStuff: [],
   },
   {
     name: 'Nains de Tir-Nâ-Bor',
@@ -445,10 +446,10 @@ export const factions: FactionType[] = [
         cost: 4,
       },
     ],
-    options: [
-      ['Chaudière', 0],
-      ['Arme à Vapeur (FOR+1d6)', 3],
-      ['Arme de tir à Vapeur (FORTIR+1d6)', 5],
+    localStuff: [
+      { name: 'Chaudière', cost: 0 },
+      { name: 'Arme à Vapeur (FOR+1d6)', cost: 3 },
+      { name: 'Arme de tir à Vapeur (FORTIR+1d6)', cost: 5 },
     ],
   },
   {
@@ -466,10 +467,10 @@ export const factions: FactionType[] = [
         cost: 4,
       },
     ],
-    options: [
-      ['Carburateur', 0],
-      ['Arme à Naphthe (FOR+1d6)', 3],
-      ['Arme de tir à Naphthe (FORTIR+1d6)', 5],
+    localStuff: [
+      { name: 'Carburateur', cost: 0 },
+      { name: 'Arme à Naphthe (FOR+1d6)', cost: 3 },
+      { name: 'Arme de tir à Naphthe (FORTIR+1d6)', cost: 5 },
     ],
   },
   {
@@ -487,7 +488,7 @@ export const factions: FactionType[] = [
         cost: 6,
       },
     ],
-    options: [],
+    localStuff: [],
   },
   {
     name: "Wolfen d'Yllia",
@@ -510,6 +511,9 @@ export const factions: FactionType[] = [
         cost: 20,
       },
     ],
-    options: [],
+    localStuff: [
+      { name: 'Arme de Lune', cost: 1 },
+      { name: 'Armure de Lune', cost: 1 },
+    ],
   },
 ];

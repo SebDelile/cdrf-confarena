@@ -1,8 +1,8 @@
 import { CARACS } from '..';
-import { EquipmentType, equipementRestrictions } from '.';
+import { EquipmentType, EQUIPMENT_RESTRICTIONS } from '.';
 
 const { MOU, FOR, RES } = CARACS;
-const { taille } = equipementRestrictions;
+const { bigSize } = EQUIPMENT_RESTRICTIONS;
 
 export const warriorStuff: EquipmentType[] = [
   {
@@ -28,7 +28,7 @@ export const warriorStuff: EquipmentType[] = [
     ],
     capacities: ['Destrier', 'Grande taille'],
     cost: 18,
-    forbiddenTo: [[taille, 'grande']],
+    restrictions: [[bigSize, false]],
   },
   {
     name: "Nerfs d'acier",

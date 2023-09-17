@@ -1,4 +1,4 @@
-import { forwardRef, ForwardedRef, ReactNode } from 'react';
+import { forwardRef, ForwardedRef, Fragment } from 'react';
 import { SelectMenuOptionType } from '@/constants';
 import { Listbox, Portal } from '@headlessui/react';
 import { EquipmentRenderer } from './EquipmentRenderer';
@@ -6,7 +6,9 @@ import { ProfileRenderer } from './ProfileRenderer';
 import { FactionRenderer } from './FactionRenderer';
 import { isEquipmentType, isProfileType, isFactionType, isLocalStuffType, isMultiple } from '@/utils/typeGuards';
 import { LocalStuffRenderer } from './LocalStuffRenderer';
-import { BoutonMultipleRenderer } from './BoutonMultipleRenderer';
+import { ButtonMultipleRenderer } from './ButtonMultipleRenderer';
+import { ListboxOption } from './ListboxOption';
+import { ButtonSingleRenderer } from './ButtonSingleRenderer';
 
 type PropTypes = {
   options: SelectMenuOptionType[];
@@ -27,8 +29,8 @@ const optionRenderer = (value: SelectMenuOptionType) => {
 
 const boutonRenderer = (selectedValue: SelectMenuOptionType | SelectMenuOptionType[] | null) => {
   if (!selectedValue || (isMultiple(selectedValue) && !selectedValue.length)) return 'Choisir une valeur';
-  if (isMultiple(selectedValue)) return <BoutonMultipleRenderer values={selectedValue} />;
-  if (isEquipmentType(selectedValue)) return <EquipmentRenderer value={selectedValue} />;
+  if (isMultiple(selectedValue)) return <ButtonMultipleRenderer values={selectedValue} />;
+  if (isEquipmentType(selectedValue)) return <ButtonSingleRenderer value={selectedValue} />;
   if (isProfileType(selectedValue) || isFactionType(selectedValue))
     return <span className="font-semibold">{selectedValue.name}</span>;
   return null;
@@ -53,9 +55,7 @@ export const SelectMenu = forwardRef(function SelectMenu(
                   <Listbox.Options static className="w-full">
                     {!multiple && <ListboxOption value={null}>Réinitialiser</ListboxOption>}
                     {options.map((option) => (
-                      <ListboxOption key={option.name} value={option}>
-                        {optionRenderer(option)}
-                      </ListboxOption>
+                      <Fragment key={option.name}>{optionRenderer(option)}</Fragment>
                     ))}
                   </Listbox.Options>
                 </div>
@@ -67,16 +67,3 @@ export const SelectMenu = forwardRef(function SelectMenu(
     </Listbox>
   );
 });
-
-const ListboxOption = ({ children, value }: { children: ReactNode; value: SelectMenuOptionType | null }) => (
-  <Listbox.Option
-    value={value}
-    className={({ active, selected }) =>
-      `cursor-pointer px-3 py-3 border-black border-opacity-20 border-b-2 last:border-b-0 ${
-        active ? 'bg-blue-400' : ''
-      } ${selected && !active ? 'bg-blue-200' : ''}`
-    }
-  >
-    {children}
-  </Listbox.Option>
-);

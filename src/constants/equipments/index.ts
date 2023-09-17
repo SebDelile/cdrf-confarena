@@ -1,18 +1,21 @@
-import { CARACS } from '..';
+import { ALLIANCES, CARACS, CLASSES } from '..';
+
+export type RestrictionType =
+  | [EQUIPMENT_RESTRICTIONS, boolean]
+  | [EQUIPMENT_RESTRICTIONS, boolean, (CLASSES | ALLIANCES)[]];
 
 export type EquipmentType = {
   name: string;
   caracModifs: [CARACS, number][];
   capacities: string[];
   cost: number;
-  reservedTo?: string[][];
-  forbiddenTo?: [equipementRestrictions, string][];
+  restrictions?: RestrictionType[];
   specialEffect?: string;
 };
 
-export enum equipementRestrictions {
+export enum EQUIPMENT_RESTRICTIONS {
   classe = 'classe',
-  taille = 'taille',
-  carac = 'carac',
+  bigSize = 'bigSize',
+  scaryOne = 'scaryOne',
   alliance = 'alliance',
 }

@@ -5,7 +5,7 @@ type PropTypes = {
   values: SelectMenuOptionType[];
 };
 
-export const BoutonMultipleRenderer = ({ values }: PropTypes) => {
+export const ButtonMultipleRenderer = ({ values }: PropTypes) => {
   return (
     <div className="flex justify-between items-center">
       <div>{values.map(({ name }) => name).join(JOIN_ELEMENT)}</div>

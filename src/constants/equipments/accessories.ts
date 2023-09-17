@@ -1,9 +1,9 @@
 import { CARACS, CLASSES } from '..';
-import { EquipmentType, equipementRestrictions } from '.';
+import { EquipmentType, EQUIPMENT_RESTRICTIONS } from '.';
 
-const { shooter, magician, priest } = CLASSES;
+const { shooter, warriorShooter, magician, warriorMagician, priest, warriorPriest } = CLASSES;
 const { FOR, RES, COU, DIS } = CARACS;
-const { taille, classe } = equipementRestrictions;
+const { bigSize, classe } = EQUIPMENT_RESTRICTIONS;
 
 export const accessories: EquipmentType[] = [
   {
@@ -68,10 +68,7 @@ export const accessories: EquipmentType[] = [
     ],
     capacities: ['Grande taille'],
     cost: 6,
-    reservedTo: [
-      [taille, 'petite'],
-      [taille, 'moyenne'],
-    ],
+    restrictions: [[bigSize, false]],
   },
   {
     name: 'Potion de titan',
@@ -81,7 +78,7 @@ export const accessories: EquipmentType[] = [
     ],
     capacities: ['Enorme/1'],
     cost: 8,
-    reservedTo: [[taille, 'grande']],
+    restrictions: [[bigSize, true]],
   },
   {
     name: 'Bénédiction divine',
@@ -118,26 +115,20 @@ export const accessories: EquipmentType[] = [
     caracModifs: [],
     capacities: ["Tireur d'élite", 'Tir instinctif'],
     cost: 6,
-    reservedTo: [[classe, shooter]],
+    restrictions: [[classe, true, [shooter, warriorShooter]]],
   },
   {
     name: "Pierre d'invocation",
     caracModifs: [],
     capacities: ['Invocateur/1'],
     cost: 2,
-    reservedTo: [
-      [classe, magician],
-      [classe, priest],
-    ],
+    restrictions: [[classe, true, [magician, warriorMagician, priest, warriorPriest]]],
   },
   {
     name: 'Parchemin de déni',
     caracModifs: [],
     capacities: ['Négation'],
     cost: 2,
-    reservedTo: [
-      [classe, magician],
-      [classe, priest],
-    ],
+    restrictions: [[classe, true, [magician, warriorMagician, priest, warriorPriest]]],
   },
 ];

@@ -17,7 +17,7 @@ export type FactionType = {
   alliance: ALLIANCES;
   grimoire: string[];
   baseElements: GEMMES[];
-  forbidenElements: GEMMES[];
+  forbiddenElements: GEMMES[];
   litany: string;
   profileModifs: profileModifType[];
   localStuff: LocalStuffType[];
@@ -29,7 +29,7 @@ export const factions: FactionType[] = [
     alliance: meandresTenebres,
     grimoire: ['Technomancie', 'Biopsie'],
     baseElements: [tenebres],
-    forbidenElements: [air, lumiere],
+    forbiddenElements: [air, lumiere],
     litany: 'Arh-Tolth',
     profileModifs: [{ classe: all, caracModifs: [], capacities: ['Mutagène/2'], cost: 6 }],
     localStuff: [],
@@ -39,7 +39,7 @@ export const factions: FactionType[] = [
     alliance: meandresTenebres,
     grimoire: ['Typhonisme', 'Enskëm'],
     baseElements: [tenebres],
-    forbidenElements: [lumiere],
+    forbiddenElements: [lumiere],
     litany: 'Vortiris',
     profileModifs: [
       {
@@ -62,7 +62,7 @@ export const factions: FactionType[] = [
     alliance: meandresTenebres,
     grimoire: ['Typhonisme', 'Enskëm'],
     baseElements: [tenebres],
-    forbidenElements: [lumiere],
+    forbiddenElements: [lumiere],
     litany: 'Vortiris',
     profileModifs: [
       {
@@ -79,7 +79,7 @@ export const factions: FactionType[] = [
     alliance: autresAlliances,
     grimoire: ['Cartomancie', 'Noire'],
     baseElements: [tenebres, lumiere, air, eau, feu, terre],
-    forbidenElements: [],
+    forbiddenElements: [],
     litany: 'Désir',
     profileModifs: [
       {
@@ -96,7 +96,7 @@ export const factions: FactionType[] = [
     alliance: meandresTenebres,
     grimoire: ['Hurlements', 'Tourments'],
     baseElements: [eau],
-    forbidenElements: [terre],
+    forbiddenElements: [terre],
     litany: 'Vile-Tis',
     profileModifs: [
       {
@@ -121,7 +121,7 @@ export const factions: FactionType[] = [
     alliance: meandresTenebres,
     grimoire: ['Hurlements', 'Tourments'],
     baseElements: [eau],
-    forbidenElements: [terre],
+    forbiddenElements: [terre],
     litany: 'Vile-Tis',
     profileModifs: [
       {
@@ -144,7 +144,7 @@ export const factions: FactionType[] = [
     alliance: voieLumiere,
     grimoire: ['Solaris', 'Chronomancie'],
     baseElements: [lumiere],
-    forbidenElements: [tenebres],
+    forbiddenElements: [tenebres],
     litany: 'Noësis',
     profileModifs: [
       {
@@ -171,7 +171,7 @@ export const factions: FactionType[] = [
     alliance: cheminDestin,
     grimoire: ['Féérie', 'Symbiose'],
     baseElements: [eau],
-    forbidenElements: [feu, tenebres],
+    forbiddenElements: [feu, tenebres],
     litany: 'Earhë',
     profileModifs: [
       {
@@ -196,7 +196,7 @@ export const factions: FactionType[] = [
     alliance: cheminDestin,
     grimoire: ['Sorcellerie', 'Mutations'],
     baseElements: [air],
-    forbidenElements: [],
+    forbiddenElements: [],
     litany: 'Rat',
     profileModifs: [
       {
@@ -224,7 +224,7 @@ export const factions: FactionType[] = [
     alliance: voieLumiere,
     grimoire: ['Théurgie', 'Rédemption', 'Exorcisme'],
     baseElements: [feu],
-    forbidenElements: [tenebres],
+    forbiddenElements: [tenebres],
     litany: 'Merin',
     profileModifs: [
       {
@@ -254,7 +254,7 @@ export const factions: FactionType[] = [
     alliance: meandresTenebres,
     grimoire: ['Shamanisme', 'Supplices'],
     baseElements: [tenebres, air, eau, feu, terre],
-    forbidenElements: [lumiere],
+    forbiddenElements: [lumiere],
     litany: 'Cernunnos',
     profileModifs: [
       {
@@ -277,7 +277,7 @@ export const factions: FactionType[] = [
     alliance: meandresTenebres,
     grimoire: ['Typhonisme', 'Cabale'],
     baseElements: [tenebres],
-    forbidenElements: [lumiere],
+    forbiddenElements: [lumiere],
     litany: 'Cernunnos',
     profileModifs: [
       {
@@ -303,7 +303,7 @@ export const factions: FactionType[] = [
     alliance: voieLumiere,
     grimoire: ['Shamanisme', 'Druidisme'],
     baseElements: [air, eau, feu, terre],
-    forbidenElements: [lumiere, tenebres],
+    forbiddenElements: [lumiere, tenebres],
     litany: 'Dannu',
     profileModifs: [
       {
@@ -324,7 +324,7 @@ export const factions: FactionType[] = [
     alliance: voieLumiere,
     grimoire: ['hermétisme', 'Circæus'],
     baseElements: [lumiere],
-    forbidenElements: [tenebres],
+    forbiddenElements: [tenebres],
     litany: 'Aïrn',
     profileModifs: [
       {
@@ -347,7 +347,7 @@ export const factions: FactionType[] = [
     alliance: meandresTenebres,
     grimoire: ['Nécromancie', 'Circæus'],
     baseElements: [tenebres],
-    forbidenElements: [lumiere, eau],
+    forbiddenElements: [lumiere, eau],
     litany: 'Salaüel',
     profileModifs: [
       {
@@ -379,7 +379,7 @@ export const factions: FactionType[] = [
     alliance: meandresTenebres,
     grimoire: ['Nécromancie', 'Circæus'],
     baseElements: [tenebres],
-    forbidenElements: [lumiere, eau],
+    forbiddenElements: [lumiere, eau],
     litany: 'Salaüel',
     profileModifs: [
       {
@@ -406,7 +406,7 @@ export const factions: FactionType[] = [
     alliance: meandresTenebres,
     grimoire: ['Chtonienne', 'Corruption'],
     baseElements: [tenebres],
-    forbidenElements: [lumiere, air],
+    forbiddenElements: [lumiere, air],
     litany: 'Mid-Nor',
     profileModifs: [
       {
@@ -432,7 +432,7 @@ export const factions: FactionType[] = [
     alliance: voieLumiere,
     grimoire: ['Tellurique', 'Forge', 'Lithomancie'],
     baseElements: [terre],
-    forbidenElements: [tenebres],
+    forbiddenElements: [tenebres],
     litany: 'Odnir',
     profileModifs: [
       {
@@ -457,7 +457,7 @@ export const factions: FactionType[] = [
     alliance: cheminDestin,
     grimoire: ['Magie instinctive'],
     baseElements: [],
-    forbidenElements: [tenebres, lumiere, air, eau, feu, terre],
+    forbiddenElements: [tenebres, lumiere, air, eau, feu, terre],
     litany: 'Chacal',
     profileModifs: [
       {
@@ -478,7 +478,7 @@ export const factions: FactionType[] = [
     alliance: cheminDestin,
     grimoire: ['Magie instinctive'],
     baseElements: [],
-    forbidenElements: [tenebres, lumiere, air, eau, feu, terre],
+    forbiddenElements: [tenebres, lumiere, air, eau, feu, terre],
     litany: 'Elokani',
     profileModifs: [
       {
@@ -495,7 +495,7 @@ export const factions: FactionType[] = [
     alliance: cheminDestin,
     grimoire: ['Murmures', 'Lamentations'],
     baseElements: [eau],
-    forbidenElements: [tenebres, lumiere],
+    forbiddenElements: [tenebres, lumiere],
     litany: 'Yllia',
     profileModifs: [
       {

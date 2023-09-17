@@ -1,10 +1,10 @@
 import { CARACS, ALLIANCES, CLASSES } from '..';
-import { EquipmentType, equipementRestrictions } from '.';
+import { EquipmentType, EQUIPMENT_RESTRICTIONS } from '.';
 
-const { magician } = CLASSES;
+const { magician, warriorMagician } = CLASSES;
 const { FOR, RES, COU, PEU, DIS } = CARACS;
 const { voieLumiere, meandresTenebres, cheminDestin } = ALLIANCES;
-const { classe, carac, alliance } = equipementRestrictions;
+const { classe, scaryOne, alliance } = EQUIPMENT_RESTRICTIONS;
 
 export const head: EquipmentType[] = [
   {
@@ -27,14 +27,14 @@ export const head: EquipmentType[] = [
     caracModifs: [],
     capacities: ['Conscience', 'Focus'],
     cost: 10,
-    reservedTo: [[classe, magician]],
+    restrictions: [[classe, true, [magician, warriorMagician]]],
   },
   {
     name: 'Heaume de prescience',
     caracModifs: [],
     capacities: ['Conscience', 'Esquive'],
     cost: 7,
-    forbiddenTo: [[classe, magician]],
+    restrictions: [[classe, false, [magician, warriorMagician]]],
   },
   {
     name: 'Courone de stratège',
@@ -56,9 +56,9 @@ export const head: EquipmentType[] = [
     ],
     capacities: ['Abominable'],
     cost: 7,
-    reservedTo: [
-      [carac, PEU],
-      [alliance, meandresTenebres],
+    restrictions: [
+      [scaryOne, true],
+      [alliance, true, [meandresTenebres]],
     ],
   },
   {
@@ -75,7 +75,7 @@ export const head: EquipmentType[] = [
     ],
     capacities: [],
     cost: 4,
-    reservedTo: [[carac, PEU]],
+    restrictions: [[scaryOne, true]],
   },
   {
     name: 'Visière vif-acier',
@@ -88,13 +88,13 @@ export const head: EquipmentType[] = [
     caracModifs: [],
     capacities: ['Fanatisme', 'Instinct de survie/5'],
     cost: 4,
-    reservedTo: [[alliance, cheminDestin]],
+    restrictions: [[alliance, true, [cheminDestin]]],
   },
   {
     name: 'Tiare de lumière',
     caracModifs: [[DIS, 1]],
     capacities: ['Hypérien/9'],
     cost: 4,
-    reservedTo: [[alliance, voieLumiere]],
+    restrictions: [[alliance, true, [voieLumiere]]],
   },
 ];

@@ -1,9 +1,9 @@
 import { CARACS, CLASSES } from '..';
-import { EquipmentType, equipementRestrictions } from '.';
+import { EquipmentType, EQUIPMENT_RESTRICTIONS } from '.';
 
-const { shooter } = CLASSES;
+const { shooter, warriorShooter } = CLASSES;
 const { MOU, DIS } = CARACS;
-const { classe } = equipementRestrictions;
+const { classe } = EQUIPMENT_RESTRICTIONS;
 
 export const foot: EquipmentType[] = [
   {
@@ -29,7 +29,7 @@ export const foot: EquipmentType[] = [
     caracModifs: [],
     capacities: ['Harcèlement'],
     cost: 4,
-    reservedTo: [[classe, shooter]],
+    restrictions: [[classe, true, [shooter, warriorShooter]]],
   },
   {
     name: 'Sabots de démon',

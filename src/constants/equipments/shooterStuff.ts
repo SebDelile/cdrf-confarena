@@ -1,6 +1,6 @@
-import { EquipmentType, equipementRestrictions } from '.';
+import { EquipmentType, EQUIPMENT_RESTRICTIONS } from '.';
 
-const { taille } = equipementRestrictions;
+const { bigSize } = EQUIPMENT_RESTRICTIONS;
 
 export const shooterStuff: (EquipmentType & { remoteWeapon: string })[] = [
   {
@@ -51,6 +51,6 @@ export const shooterStuff: (EquipmentType & { remoteWeapon: string })[] = [
     capacities: [],
     remoteWeapon: 'FORTIR 8 ∙ portée 20-40-60',
     cost: 6,
-    reservedTo: [[taille, 'grande']],
+    restrictions: [[bigSize, true]],
   },
 ];

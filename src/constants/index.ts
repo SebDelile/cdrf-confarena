@@ -66,3 +66,21 @@ export const formDefault = {
   magicianStuff: null as EquipmentType | null,
   priestStuff: null as EquipmentType | null,
 };
+
+export type FormType = typeof formDefault;
+
+export enum EQUIPMENT_PARTS {
+  oneHandWeapon1Part = 'oneHandWeapon1',
+  oneHandWeapon2Part = 'oneHandWeapon2',
+  twoHandsWeaponPart = 'twoHandsWeapon',
+  shieldPart = 'shield',
+  headPart = 'head',
+  bodyPart = 'body',
+  footPart = 'foot',
+  accessory1Part = 'accessory1',
+  accessory2Part = 'accessory2',
+  warriorStuffPart = 'warriorStuff',
+  shooterStuffPart = 'shooterStuff',
+  magicianStuffPart = 'magicianStuff',
+  priestStuffPart = 'priestStuff',
+}

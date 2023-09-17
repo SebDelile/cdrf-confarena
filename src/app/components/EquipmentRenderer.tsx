@@ -12,7 +12,7 @@ type PropTypes = {
 // TODO: handle forbiddenTo and reservedTo properties
 
 export const EquipmentRenderer = ({ value }: PropTypes) => {
-  const { name, caracModifs, capacities, specialEffect, cost, restrictions } = value;
+  const { name, caracModifs, capacities, specialEffect, cost, remoteWeapon, restrictions } = value;
   const [classe, faction] = useWatch({ name: ['classe', 'faction'] });
   const isDisabled = getIsRestricted(restrictions, classe?.name, faction);
   return (
@@ -21,7 +21,7 @@ export const EquipmentRenderer = ({ value }: PropTypes) => {
         <div>
           <span className="font-semibold pr-2">{`${name} : `}</span>
           <span>
-            {[formatCaracModifiers(caracModifs), formatCapacities(capacities), specialEffect]
+            {[remoteWeapon, formatCaracModifiers(caracModifs), formatCapacities(capacities), specialEffect]
               .filter(Boolean)
               .join(JOIN_ELEMENT)}
           </span>

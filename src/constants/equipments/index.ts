@@ -11,6 +11,7 @@ export type EquipmentType = {
   cost: number;
   restrictions?: RestrictionType[];
   specialEffect?: string;
+  remoteWeapon?: string;
 };
 
 export enum EQUIPMENT_RESTRICTIONS {

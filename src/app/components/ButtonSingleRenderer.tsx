@@ -7,14 +7,14 @@ type PropTypes = {
 };
 
 export const ButtonSingleRenderer = ({ value }: PropTypes) => {
-  const { name, caracModifs, capacities, specialEffect, cost } = value;
+  const { name, caracModifs, capacities, specialEffect, cost, remoteWeapon } = value;
 
   return (
     <div className="flex justify-between items-center">
       <div>
         <span className="font-semibold pr-2">{`${name} : `}</span>
         <span>
-          {[formatCaracModifiers(caracModifs), formatCapacities(capacities), specialEffect]
+          {[remoteWeapon, formatCaracModifiers(caracModifs), formatCapacities(capacities), specialEffect]
             .filter(Boolean)
             .join(JOIN_ELEMENT)}
         </span>

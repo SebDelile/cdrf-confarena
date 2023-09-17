@@ -1,4 +1,4 @@
-import { CARACS, SelectMenuOptionType } from '..';
+import { CARACS } from '..';
 
 export type EquipmentType = {
   name: string;

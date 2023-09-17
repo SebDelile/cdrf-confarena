@@ -3,7 +3,7 @@ import { EquipmentType } from '.';
 
 const { INI, POU } = CARACS;
 
-export const magicStuff: EquipmentType[] = [
+export const magicianStuff: EquipmentType[] = [
   {
     name: 'Grimoire',
     caracModifs: [],

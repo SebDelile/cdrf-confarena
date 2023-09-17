@@ -2,7 +2,7 @@ import { EquipmentType, equipementRestrictions } from '.';
 
 const { taille } = equipementRestrictions;
 
-export const remoteWeapons: (EquipmentType & { remoteWeapon: string })[] = [
+export const shooterStuff: (EquipmentType & { remoteWeapon: string })[] = [
   {
     name: 'Pistolet',
     caracModifs: [],

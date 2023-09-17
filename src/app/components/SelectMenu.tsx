@@ -1,3 +1,4 @@
+import { forwardRef, ForwardedRef, ReactNode } from 'react';
 import { SelectMenuOptionType } from '@/constants';
 import { Listbox, Portal } from '@headlessui/react';
 import { EquipmentRenderer } from './EquipmentRenderer';
@@ -9,7 +10,7 @@ import { BoutonMultipleRenderer } from './BoutonMultipleRenderer';
 
 type PropTypes = {
   options: SelectMenuOptionType[];
-  selectedValue: SelectMenuOptionType | SelectMenuOptionType[] | null;
+  value: SelectMenuOptionType | SelectMenuOptionType[] | null;
   onChange: (newValue: SelectMenuOptionType | SelectMenuOptionType[]) => void;
   label: string;
   fullDisplayInButton?: boolean;
@@ -28,37 +29,33 @@ const boutonRenderer = (selectedValue: SelectMenuOptionType | SelectMenuOptionTy
   if (!selectedValue || (isMultiple(selectedValue) && !selectedValue.length)) return 'Choisir une valeur';
   if (isMultiple(selectedValue)) return <BoutonMultipleRenderer values={selectedValue} />;
   if (isEquipmentType(selectedValue)) return <EquipmentRenderer value={selectedValue} />;
-  if (isProfileType(selectedValue) || isFactionType(selectedValue)) return selectedValue.name;
+  if (isProfileType(selectedValue) || isFactionType(selectedValue))
+    return <span className="font-semibold">{selectedValue.name}</span>;
   return null;
 };
 
-export const SelectMenu = ({ options, selectedValue, onChange, label, multiple = false }: PropTypes) => {
+export const SelectMenu = forwardRef(function SelectMenu(
+  { options, value, onChange, label, multiple = false }: PropTypes,
+  ref: ForwardedRef<HTMLElement | null>,
+) {
   return (
-    <Listbox by="name" value={selectedValue} onChange={onChange} multiple={multiple}>
+    <Listbox ref={ref} by="name" value={value} onChange={onChange} multiple={multiple} disabled={!options.length}>
       {({ open }) => (
         <div className="form-container relative py-3">
           <Listbox.Label className="pl-2">{label}</Listbox.Label>
           <Listbox.Button className="form-input">
-            {options.length ? boutonRenderer(selectedValue) : 'Indisponible'}
+            {options.length ? boutonRenderer(value) : 'Indisponible'}
           </Listbox.Button>
           {open && (
             <Portal>
-              <div className="z-50 absolute inset-0 flex justify-center items-center p-10 bg-gray-600 bg-opacity-60">
+              <div className="z-50 fixed inset-0 flex justify-center items-center p-10 bg-gray-600 bg-opacity-60">
                 <div className="mx-32 w-full max-h-full overflow-auto bg-white border border-black">
                   <Listbox.Options static className="w-full">
+                    {!multiple && <ListboxOption value={null}>Réinitialiser</ListboxOption>}
                     {options.map((option) => (
-                      <Listbox.Option
-                        key={option.name}
-                        value={option}
-                        disabled={undefined}
-                        className={({ active, selected }) =>
-                          `cursor-pointer px-3 py-3 border-black border-opacity-20 border-b-2 last:border-b-0 ${
-                            active ? 'bg-blue-400' : ''
-                          } ${selected && !active ? 'bg-blue-200' : ''}`
-                        }
-                      >
+                      <ListboxOption key={option.name} value={option}>
                         {optionRenderer(option)}
-                      </Listbox.Option>
+                      </ListboxOption>
                     ))}
                   </Listbox.Options>
                 </div>
@@ -69,4 +66,17 @@ export const SelectMenu = ({ options, selectedValue, onChange, label, multiple =
       )}
     </Listbox>
   );
-};
+});
+
+const ListboxOption = ({ children, value }: { children: ReactNode; value: SelectMenuOptionType | null }) => (
+  <Listbox.Option
+    value={value}
+    className={({ active, selected }) =>
+      `cursor-pointer px-3 py-3 border-black border-opacity-20 border-b-2 last:border-b-0 ${
+        active ? 'bg-blue-400' : ''
+      } ${selected && !active ? 'bg-blue-200' : ''}`
+    }
+  >
+    {children}
+  </Listbox.Option>
+);

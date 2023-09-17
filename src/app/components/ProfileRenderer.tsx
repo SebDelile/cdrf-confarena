@@ -17,9 +17,9 @@ export const ProfileRenderer = ({ value }: PropTypes) => {
             carac.map((value, j) => (
               <div
                 key={value}
-                className={`border-black border-opacity-20 border-r-2 text-center row-start-${(j % 2) + 1} ${
-                  i === 0 ? 'border-l-2' : ''
-                }`}
+                className={`border-black border-opacity-20 border-r-2 text-center ${
+                  j % 2 ? 'row-start-2' : 'row-start-1'
+                } ${i === 0 ? 'border-l-2' : ''}`}
               >
                 {value}
               </div>

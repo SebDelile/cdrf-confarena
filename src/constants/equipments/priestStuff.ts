@@ -3,7 +3,7 @@ import { EquipmentType } from '.';
 
 const { INI, RES, FOI } = CARACS;
 
-export const faithStuff: EquipmentType[] = [
+export const priestStuff: EquipmentType[] = [
   {
     name: 'Inspiration',
     caracModifs: [[FOI, 1]],

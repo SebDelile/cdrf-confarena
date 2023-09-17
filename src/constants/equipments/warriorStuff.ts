@@ -4,7 +4,7 @@ import { EquipmentType, equipementRestrictions } from '.';
 const { MOU, FOR, RES } = CARACS;
 const { taille } = equipementRestrictions;
 
-export const accessories: EquipmentType[] = [
+export const warriorStuff: EquipmentType[] = [
   {
     name: 'Entraînement intense',
     caracModifs: [

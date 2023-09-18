@@ -4,6 +4,8 @@ import { EquipmentType } from '@/constants/equipments';
 import { formatCapacities, formatCaracModifiers, formatRestrictionExplanations } from '@/utils';
 import { getIsRestricted } from '@/utils/getIsRestricted';
 import { ListboxOption } from './ListboxOption';
+import { ProfileType } from '@/constants/profiles';
+import { FactionType } from '@/constants/factions';
 
 type PropTypes = {
   value: EquipmentType;
@@ -11,7 +13,7 @@ type PropTypes = {
 
 export const EquipmentRenderer = ({ value }: PropTypes) => {
   const { name, caracModifs, capacities, specialEffect, cost, remoteWeapon, restrictions } = value;
-  const [classe, faction] = useWatch({ name: ['classe', 'faction'] });
+  const [classe, faction]: [ProfileType, FactionType] = useWatch({ name: ['classe', 'faction'] });
   const isDisabled = getIsRestricted(restrictions, classe?.name, faction);
   const title = isDisabled ? formatRestrictionExplanations(restrictions) : undefined;
 

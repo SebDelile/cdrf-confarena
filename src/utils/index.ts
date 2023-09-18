@@ -1,4 +1,4 @@
-import { CARACS, JOIN_ELEMENT } from '@/constants';
+import { CARACS, CharacterProfileType, JOIN_ELEMENT } from '@/constants';
 import { RestrictionType } from '@/constants/equipments';
 
 export const formatCaracModifiers = (caracmodifiers: [CARACS, number][]) =>
@@ -28,3 +28,21 @@ export const formatRestrictionExplanations = (restrictions: RestrictionType[]) =
         : '',
     )
     .join('\n');
+
+export const applyProfileModifiers = (
+  profile: CharacterProfileType,
+  cost: number,
+  caracModifs: [CARACS, number][],
+  capacities: string[],
+  specialEffect?: string,
+): void => {
+  if (caracModifs.length) {
+    caracModifs.forEach(([carac, modifier]) => {
+      const currentCarac = profile.caracs[carac];
+      if (currentCarac !== null) profile.caracs[carac] = currentCarac + modifier;
+    });
+  }
+  if (capacities.length) profile.capacities.push(...capacities);
+  if (specialEffect) profile.specialEffects.push(specialEffect);
+  profile.cost += cost;
+};

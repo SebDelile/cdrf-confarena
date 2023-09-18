@@ -1,12 +1,12 @@
 import { CLASSES, CARACS, ALLIANCES, GEMMES } from '.';
 
-const { all, shooter, magician, priest } = CLASSES;
+const { all, shooter, warriorShooter, magician, warriorMagician, priest, warriorPriest } = CLASSES;
 const { MOU, INI, FOR, RES, COU, PEU, DIS, TIR, POU, FOI } = CARACS;
 const { voieLumiere, meandresTenebres, cheminDestin, autresAlliances } = ALLIANCES;
 const { lumiere, tenebres, air, eau, feu, terre } = GEMMES;
 
 export type profileModifType = {
-  classe: CLASSES;
+  classes: CLASSES[];
   caracModifs: [CARACS, number][];
   capacities: string[];
   cost: number;
@@ -31,7 +31,7 @@ export const factions: FactionType[] = [
     baseElements: [tenebres],
     forbiddenElements: [air, lumiere],
     litany: 'Arh-Tolth',
-    profileModifs: [{ classe: all, caracModifs: [], capacities: ['Mutagène/2'], cost: 6 }],
+    profileModifs: [{ classes: [all], caracModifs: [], capacities: ['Mutagène/2'], cost: 6 }],
     localStuff: [],
   },
   {
@@ -43,7 +43,7 @@ export const factions: FactionType[] = [
     litany: 'Vortiris',
     profileModifs: [
       {
-        classe: all,
+        classes: [all],
         caracModifs: [
           [MOU, 2.5],
           [INI, 1],
@@ -52,8 +52,8 @@ export const factions: FactionType[] = [
         capacities: ['Conscience', 'Toxique/3', 'Grande taille'],
         cost: 20,
       },
-      { classe: shooter, caracModifs: [[TIR, 1]], capacities: [], cost: 4 },
-      { classe: magician, caracModifs: [[POU, 1]], capacities: [], cost: 7 },
+      { classes: [shooter, warriorShooter], caracModifs: [[TIR, 1]], capacities: [], cost: 4 },
+      { classes: [magician, warriorMagician], caracModifs: [[POU, 1]], capacities: [], cost: 7 },
     ],
     localStuff: [],
   },
@@ -66,7 +66,7 @@ export const factions: FactionType[] = [
     litany: 'Vortiris',
     profileModifs: [
       {
-        classe: all,
+        classes: [all],
         caracModifs: [[DIS, -1]],
         capacities: ['Toxique/0', 'Possédé'],
         cost: 6,
@@ -83,7 +83,7 @@ export const factions: FactionType[] = [
     litany: 'Désir',
     profileModifs: [
       {
-        classe: all,
+        classes: [all],
         caracModifs: [],
         capacities: [],
         cost: 0,
@@ -100,7 +100,7 @@ export const factions: FactionType[] = [
     litany: 'Vile-Tis',
     profileModifs: [
       {
-        classe: all,
+        classes: [all],
         caracModifs: [
           [MOU, 5],
           [RES, 1],
@@ -125,7 +125,7 @@ export const factions: FactionType[] = [
     litany: 'Vile-Tis',
     profileModifs: [
       {
-        classe: all,
+        classes: [all],
         caracModifs: [
           [MOU, 2.5],
           [DIS, -2],
@@ -148,7 +148,7 @@ export const factions: FactionType[] = [
     litany: 'Noësis',
     profileModifs: [
       {
-        classe: all,
+        classes: [all],
         caracModifs: [
           [MOU, 2.5],
           [COU, 1],
@@ -157,7 +157,7 @@ export const factions: FactionType[] = [
         capacities: ['Concentration/2 (INI/ATT/DEF/COU)'],
         cost: 10,
       },
-      { classe: shooter, caracModifs: [[TIR, 1]], capacities: [], cost: 4 },
+      { classes: [shooter, warriorShooter], caracModifs: [[TIR, 1]], capacities: [], cost: 4 },
     ],
     localStuff: [
       { name: 'Arme Héliante', cost: 1 },
@@ -175,7 +175,7 @@ export const factions: FactionType[] = [
     litany: 'Earhë',
     profileModifs: [
       {
-        classe: all,
+        classes: [all],
         caracModifs: [
           [MOU, 2.5],
           [DIS, -2],
@@ -183,7 +183,7 @@ export const factions: FactionType[] = [
         capacities: ['Régénération/5'],
         cost: 4,
       },
-      { classe: shooter, caracModifs: [[TIR, 1]], capacities: [], cost: 4 },
+      { classes: [shooter, warriorShooter], caracModifs: [[TIR, 1]], capacities: [], cost: 4 },
     ],
     localStuff: [
       { name: 'Arme Symbiotique', cost: 1 },
@@ -200,7 +200,7 @@ export const factions: FactionType[] = [
     litany: 'Rat',
     profileModifs: [
       {
-        classe: all,
+        classes: [all],
         caracModifs: [
           [INI, 1],
           [FOR, -1],
@@ -210,8 +210,8 @@ export const factions: FactionType[] = [
         capacities: ['Instinct de survie/6', 'Petite taille'],
         cost: -1,
       },
-      { classe: magician, caracModifs: [[POU, 1]], capacities: [], cost: 5 },
-      { classe: priest, caracModifs: [[FOI, 1]], capacities: [], cost: 5 },
+      { classes: [magician, warriorMagician], caracModifs: [[POU, 1]], capacities: [], cost: 5 },
+      { classes: [priest, warriorPriest], caracModifs: [[FOI, 1]], capacities: [], cost: 5 },
     ],
     localStuff: [
       { name: 'Carburateur', cost: 0 },
@@ -228,7 +228,7 @@ export const factions: FactionType[] = [
     litany: 'Merin',
     profileModifs: [
       {
-        classe: all,
+        classes: [all],
         caracModifs: [
           [FOR, -1],
           [RES, 1],
@@ -238,7 +238,7 @@ export const factions: FactionType[] = [
         cost: 6,
       },
       {
-        classe: priest,
+        classes: [priest, warriorPriest],
         caracModifs: [[FOI, 1]],
         capacities: ['Illuminé'],
         cost: 6,
@@ -258,13 +258,13 @@ export const factions: FactionType[] = [
     litany: 'Cernunnos',
     profileModifs: [
       {
-        classe: all,
+        classes: [all],
         caracModifs: [[DIS, -1]],
         capacities: ['Acharné'],
         cost: 4,
       },
       {
-        classe: priest,
+        classes: [priest, warriorPriest],
         caracModifs: [[FOI, 1]],
         capacities: ['Illuminé'],
         cost: 5,
@@ -281,7 +281,7 @@ export const factions: FactionType[] = [
     litany: 'Cernunnos',
     profileModifs: [
       {
-        classe: all,
+        classes: [all],
         caracModifs: [
           [MOU, 2.5],
           [FOR, 1],
@@ -307,7 +307,7 @@ export const factions: FactionType[] = [
     litany: 'Dannu',
     profileModifs: [
       {
-        classe: all,
+        classes: [all],
         caracModifs: [
           [INI, 1],
           [RES, -1],
@@ -328,13 +328,13 @@ export const factions: FactionType[] = [
     litany: 'Aïrn',
     profileModifs: [
       {
-        classe: all,
+        classes: [all],
         caracModifs: [[COU, 1]],
         capacities: ['Bravoure'],
         cost: 3,
       },
       {
-        classe: magician,
+        classes: [magician, warriorMagician],
         caracModifs: [[POU, 2]],
         capacities: [],
         cost: 13,
@@ -351,7 +351,7 @@ export const factions: FactionType[] = [
     litany: 'Salaüel',
     profileModifs: [
       {
-        classe: all,
+        classes: [all],
         caracModifs: [
           [MOU, -2.5],
           [INI, -1],
@@ -362,7 +362,7 @@ export const factions: FactionType[] = [
         cost: 0,
       },
       {
-        classe: magician,
+        classes: [magician, warriorMagician],
         caracModifs: [[POU, 1]],
         capacities: ['Invocateur/2'],
         cost: 7,
@@ -383,13 +383,13 @@ export const factions: FactionType[] = [
     litany: 'Salaüel',
     profileModifs: [
       {
-        classe: all,
+        classes: [all],
         caracModifs: [[PEU, 1]],
         capacities: ['Résolution/1'],
         cost: 4,
       },
       {
-        classe: magician,
+        classes: [magician, warriorMagician],
         caracModifs: [[POU, 1]],
         capacities: ['Invocateur/2'],
         cost: 7,
@@ -410,7 +410,7 @@ export const factions: FactionType[] = [
     litany: 'Mid-Nor',
     profileModifs: [
       {
-        classe: all,
+        classes: [all],
         caracModifs: [
           [MOU, -2.5],
           [PEU, 1],
@@ -419,7 +419,7 @@ export const factions: FactionType[] = [
         cost: 3,
       },
       {
-        classe: priest,
+        classes: [priest, warriorPriest],
         caracModifs: [[FOI, 1]],
         capacities: ['Invocateur/2'],
         cost: 7,
@@ -436,7 +436,7 @@ export const factions: FactionType[] = [
     litany: 'Odnir',
     profileModifs: [
       {
-        classe: all,
+        classes: [all],
         caracModifs: [
           [MOU, -2.5],
           [INI, -2],
@@ -461,7 +461,7 @@ export const factions: FactionType[] = [
     litany: 'Chacal',
     profileModifs: [
       {
-        classe: all,
+        classes: [all],
         caracModifs: [[FOR, 1]],
         capacities: ['Brute épaisse'],
         cost: 4,
@@ -482,7 +482,7 @@ export const factions: FactionType[] = [
     litany: 'Elokani',
     profileModifs: [
       {
-        classe: all,
+        classes: [all],
         caracModifs: [[FOR, 1]],
         capacities: ['Brute épaisse', 'Endurance'],
         cost: 6,
@@ -499,7 +499,7 @@ export const factions: FactionType[] = [
     litany: 'Yllia',
     profileModifs: [
       {
-        classe: all,
+        classes: [all],
         caracModifs: [
           [MOU, 5],
           [FOR, 2],

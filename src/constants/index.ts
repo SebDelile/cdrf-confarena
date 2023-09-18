@@ -84,3 +84,13 @@ export enum EQUIPMENT_PARTS {
   magicianStuffPart = 'magicianStuff',
   priestStuffPart = 'priestStuff',
 }
+
+export type CharacterProfileType = ProfileType & {
+  factionName: string | null;
+  localStuff: LocalStuffType[];
+  specialEffects: string[];
+  remoteWeapon: string | null;
+  magicSkills: [GEMMES[], string[]] | null;
+  god: string | null;
+  cost: number;
+};

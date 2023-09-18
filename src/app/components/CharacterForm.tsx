@@ -18,9 +18,9 @@ import { CLASSES, FormType } from '@/constants';
 const { warrior, shooter, magician, priest, warriorShooter, warriorMagician, warriorPriest } = CLASSES;
 
 export const CharacterForm = () => {
-  const currentForm = useWatch();
+  const currentForm = useWatch() as FormType;
   return (
-    <form className="w-full h-full overflow-auto">
+    <form className="w-full h-full flex flex-col gap-3 overflow-auto">
       <Controller name="classe" render={({ field }) => <SelectMenu {...field} label="Classe" options={profiles} />} />
       <Controller name="faction" render={({ field }) => <SelectMenu {...field} label="Faction" options={factions} />} />
       <Controller

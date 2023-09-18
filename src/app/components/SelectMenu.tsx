@@ -43,7 +43,7 @@ export const SelectMenu = forwardRef(function SelectMenu(
   return (
     <Listbox ref={ref} by="name" value={value} onChange={onChange} multiple={multiple} disabled={!options.length}>
       {({ open }) => (
-        <div className="form-container relative py-3">
+        <div className="form-container relative">
           <Listbox.Label className="pl-2">{label}</Listbox.Label>
           <Listbox.Button className="form-input">
             {options.length ? boutonRenderer(value) : 'Indisponible'}

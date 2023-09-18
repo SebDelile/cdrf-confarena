@@ -18,11 +18,13 @@ const config: Config = {
       body: ['DM sans', 'sans-serif'],
     },
 
+
     extend: {
       colors: {
         primary: '#911a11',
         'primary-contrast': '#EED',
         background: '#ccc',
+
       },
     },
   },

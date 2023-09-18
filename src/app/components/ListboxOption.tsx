@@ -6,9 +6,10 @@ type PropTypes = {
   children: ReactNode;
   value: SelectMenuOptionType | null;
   disabled?: boolean;
+  title?: string;
 };
 
-export const ListboxOption = ({ children, value, disabled }: PropTypes) => (
+export const ListboxOption = ({ children, value, disabled, title }: PropTypes) => (
   <Listbox.Option
     value={value}
     className={({ active, selected, disabled }) =>
@@ -17,7 +18,7 @@ export const ListboxOption = ({ children, value, disabled }: PropTypes) => (
       } ${disabled ? 'text-black text-opacity-50' : 'cursor-pointer'}`
     }
     disabled={disabled}
-    // TODO: add title attribute to explain why it's disabled
+    title={title}
   >
     {children}
   </Listbox.Option>

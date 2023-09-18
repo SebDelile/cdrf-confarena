@@ -1,8 +1,10 @@
 import { ALLIANCES, CARACS, CLASSES } from '..';
 
-export type RestrictionType =
-  | [EQUIPMENT_RESTRICTIONS, boolean]
-  | [EQUIPMENT_RESTRICTIONS, boolean, (CLASSES | ALLIANCES)[]];
+export type RestrictionType = [
+  restrictionType: EQUIPMENT_RESTRICTIONS,
+  isAllowed: boolean,
+  relatedItems?: (CLASSES | ALLIANCES)[],
+];
 
 export type EquipmentType = {
   name: string;
@@ -15,8 +17,8 @@ export type EquipmentType = {
 };
 
 export enum EQUIPMENT_RESTRICTIONS {
-  classe = 'classe',
-  bigSize = 'bigSize',
-  scaryOne = 'scaryOne',
-  alliance = 'alliance',
+  classe = 'Classe',
+  bigSize = 'Grande Taille',
+  scaryOne = 'Effrayant',
+  alliance = 'Alliance',
 }

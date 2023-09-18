@@ -8,18 +8,18 @@ export const getIsRestricted = (
   restrictions: RestrictionType[] | undefined,
   classeName: CLASSES | undefined,
   faction: FactionType | null,
-) => {
+): restrictions is RestrictionType[] => {
   return (
     restrictions?.some(([type, isAllowed, list]) => {
       switch (type) {
         case classeRestriction:
-          return (classeName && list?.includes(classeName)) !== isAllowed;
+          return classeName && list?.includes(classeName) !== isAllowed;
         case scaryOne:
-          return faction?.profileModifs[0].caracModifs.some(([carac]) => carac === PEU) !== isAllowed;
+          return faction && faction.profileModifs[0].caracModifs.some(([carac]) => carac === PEU) !== isAllowed;
         case bigSize:
-          return faction?.profileModifs[0].capacities.includes('Grande taille') !== isAllowed;
+          return faction && faction.profileModifs[0].capacities.includes('Grande taille') !== isAllowed;
         case alliance:
-          return (faction && list?.includes(faction.alliance)) !== isAllowed;
+          return faction && list?.includes(faction.alliance) !== isAllowed;
       }
     }) ?? false
   );

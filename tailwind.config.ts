@@ -14,14 +14,17 @@ const config: Config = {
       xs: '540px',
       ...defaultTheme.screens,
     },
+    fontFamily: {
+      body: ['DM sans', 'sans-serif'],
+    },
+
+
     extend: {
       colors: {
         primary: '#911a11',
         'primary-contrast': '#EED',
         background: '#ccc',
-      },
-      fontFamily: {
-        body: ['DM sans', 'sans-serif'],
+
       },
     },
   },

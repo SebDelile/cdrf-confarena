@@ -1,7 +1,7 @@
 import { CARACS } from '..';
 import { EquipmentType, EQUIPMENT_RESTRICTIONS } from '.';
 
-const { MOU, FOR, RES } = CARACS;
+const { MOU, ATT, FOR, DEF, RES } = CARACS;
 const { bigSize } = EQUIPMENT_RESTRICTIONS;
 
 export const warriorStuff: EquipmentType[] = [
@@ -32,9 +32,12 @@ export const warriorStuff: EquipmentType[] = [
   },
   {
     name: "Nerfs d'acier",
-    caracModifs: [],
+    caracModifs: [
+      [ATT, 1],
+      [DEF, 1],
+    ],
     capacities: ['juste'],
-    cost: 4,
+    cost: 6,
   },
   {
     name: 'Haut gradé',
@@ -50,8 +53,11 @@ export const warriorStuff: EquipmentType[] = [
   },
   {
     name: 'Collier de dents',
-    caracModifs: [],
-    capacities: ['Féroce', 'Possédé'],
-    cost: 7,
+    caracModifs: [
+      [FOR, 1],
+      [RES, -1],
+    ],
+    capacities: ['Féroce'],
+    cost: 6,
   },
 ];

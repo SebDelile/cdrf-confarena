@@ -1,7 +1,7 @@
 import { CARACS, CLASSES } from '..';
 import { EquipmentType, EQUIPMENT_RESTRICTIONS } from '.';
 
-const { MOU, INI, DEF, RES } = CARACS;
+const { MOU, INI, ATT, FOR, DEF, RES } = CARACS;
 const { warrior } = CLASSES;
 const { classe } = EQUIPMENT_RESTRICTIONS;
 
@@ -36,9 +36,18 @@ export const body: EquipmentType[] = [
   },
   {
     name: "Ceinture de l'écorché",
-    caracModifs: [],
-    capacities: ['Acharné', 'Désespéré'],
-    cost: 8,
+    caracModifs: [[FOR, 1]],
+    capacities: ['Acharné'],
+    cost: 5,
+  },
+  {
+    name: 'Veste démoniaque',
+    caracModifs: [
+      [FOR, 1],
+      [RES, 1],
+    ],
+    capacities: ['Possédé'],
+    cost: 6,
   },
   {
     name: 'Cape spectrale',
@@ -60,26 +69,27 @@ export const body: EquipmentType[] = [
   },
   {
     name: "Cape d'invisibilité",
-    caracModifs: [],
-    capacities: ['Eclaireur', 'Cible/+1'],
+    caracModifs: [[DEF, 1]],
+    capacities: ['Eclaireur'],
     cost: 6,
   },
   {
     name: 'Armure ensorcelée',
     caracModifs: [
       [DEF, 1],
-      [RES, 2],
+      [RES, 1],
     ],
     capacities: ['Immunité/Malus de blessure et sonné'],
-    cost: 11,
+    cost: 10,
   },
   {
     name: 'Chemise en Mithril',
     caracModifs: [
       [INI, 1],
+      [ATT, 1],
       [DEF, 1],
     ],
-    capacities: ['Esquive', 'Réflexes'],
+    capacities: ['Esquive'],
     cost: 7,
   },
 ];

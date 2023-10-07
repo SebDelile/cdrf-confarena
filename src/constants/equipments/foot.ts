@@ -2,7 +2,7 @@ import { CARACS, CLASSES } from '..';
 import { EquipmentType, EQUIPMENT_RESTRICTIONS } from '.';
 
 const { shooter, warriorShooter } = CLASSES;
-const { MOU, DIS } = CARACS;
+const { MOU, INI, DIS } = CARACS;
 const { classe } = EQUIPMENT_RESTRICTIONS;
 
 export const foot: EquipmentType[] = [
@@ -20,8 +20,8 @@ export const foot: EquipmentType[] = [
   },
   {
     name: 'Bottes de sept lieux',
-    caracModifs: [],
-    capacities: ['Rapidité', 'Immnité/terrain encombré'],
+    caracModifs: [[INI, 1]],
+    capacities: ['Rapidité'],
     cost: 7,
   },
   {
@@ -45,9 +45,9 @@ export const foot: EquipmentType[] = [
   },
   {
     name: 'Souliers elfiques',
-    caracModifs: [],
-    capacities: ['Bond', 'Réflexes'],
-    cost: 5,
+    caracModifs: [[MOU, 2.5]],
+    capacities: ['Bond'],
+    cost: 6,
   },
   {
     name: 'Chaussons de fée',

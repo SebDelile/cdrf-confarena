@@ -2,7 +2,7 @@ import { CARACS, CLASSES } from '..';
 import { EquipmentType, EQUIPMENT_RESTRICTIONS } from '.';
 
 const { shooter, warriorShooter, magician, warriorMagician, priest, warriorPriest } = CLASSES;
-const { FOR, RES, COU, DIS } = CARACS;
+const { INI, ATT, FOR, DEF, RES, COU, DIS, TIR } = CARACS;
 const { bigSize, classe } = EQUIPMENT_RESTRICTIONS;
 
 export const accessories: EquipmentType[] = [
@@ -19,10 +19,19 @@ export const accessories: EquipmentType[] = [
     cost: 3,
   },
   {
+    name: 'Collier de perle',
+    caracModifs: [
+      [ATT, 1],
+      [DEF, 1],
+    ],
+    capacities: [],
+    cost: 3,
+  },
+  {
     name: "Charme d'évasion",
     caracModifs: [],
-    capacities: ['Désengagement/4', 'Réorientation'],
-    cost: 4,
+    capacities: ['Désengagement/4'],
+    cost: 2,
   },
   {
     name: 'Talisman protecteur',
@@ -93,10 +102,16 @@ export const accessories: EquipmentType[] = [
     cost: 10,
   },
   {
-    name: 'Fioles alchimiques',
+    name: 'Fiole alchimique',
     caracModifs: [],
-    capacities: ['Mutagène/0', 'Toxique/1'],
-    cost: 12,
+    capacities: ['Mutagène/0'],
+    cost: 6,
+  },
+  {
+    name: 'Venin',
+    caracModifs: [],
+    capacities: ['Toxique/1'],
+    cost: 6,
   },
   {
     name: 'Bracelets de force',
@@ -105,16 +120,32 @@ export const accessories: EquipmentType[] = [
     cost: 5,
   },
   {
+    name: 'Pagne en soie',
+    caracModifs: [
+      [ATT, 1],
+      [RES, 1],
+    ],
+    capacities: ['Désespéré'],
+    cost: 6,
+  },
+  {
     name: 'Fétiche ancien',
-    caracModifs: [],
+    caracModifs: [[INI, 1]],
     capacities: ['Instinct de survie/6'],
-    cost: 2,
+    cost: 3,
   },
   {
     name: 'Lunette de visée',
     caracModifs: [],
-    capacities: ["Tireur d'élite", 'Tir instinctif'],
-    cost: 6,
+    capacities: ["Tireur d'élite"],
+    cost: 4,
+    restrictions: [[classe, true, [shooter, warriorShooter]]],
+  },
+  {
+    name: 'Oeil de lynx',
+    caracModifs: [[TIR, 1]],
+    capacities: ['Tir instinctif'],
+    cost: 5,
     restrictions: [[classe, true, [shooter, warriorShooter]]],
   },
   {

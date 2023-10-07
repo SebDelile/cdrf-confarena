@@ -1,7 +1,7 @@
 import { CARACS, CLASSES } from '..';
 import { EquipmentType, EQUIPMENT_RESTRICTIONS } from '.';
 
-const { ATT, FOR, DEF } = CARACS;
+const { INI, ATT, FOR, DEF } = CARACS;
 const { warrior } = CLASSES;
 const { classe } = EQUIPMENT_RESTRICTIONS;
 
@@ -34,6 +34,7 @@ export const twoHandsWeapons: EquipmentType[] = [
   {
     name: 'Vouge',
     caracModifs: [
+      [INI, 1],
       [ATT, 1],
       [DEF, 1],
     ],
@@ -51,17 +52,23 @@ export const twoHandsWeapons: EquipmentType[] = [
   },
   {
     name: 'Epée à deux mains',
-    caracModifs: [[FOR, 2]],
+    caracModifs: [
+      [ATT, 1],
+      [DEF, 1],
+      [FOR, 2],
+    ],
     capacities: ['Charge bestiale'],
-    cost: 7,
+    cost: 9,
   },
   {
     name: 'Claymmore',
     caracModifs: [
+      [INI, 1],
       [ATT, 1],
+      [DEF, 1],
       [FOR, 1],
     ],
     capacities: ['Coup de maître/3'],
-    cost: 6,
+    cost: 8,
   },
 ];

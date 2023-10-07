@@ -1,7 +1,7 @@
 import { CARACS } from '..';
 import { EquipmentType } from '.';
 
-const { INI, ATT, FOR } = CARACS;
+const { INI, ATT, FOR, DEF } = CARACS;
 
 export const oneHandWeapons: EquipmentType[] = [
   { name: 'Cimeterre', caracModifs: [[INI, 1]], capacities: [], cost: 1 },
@@ -13,9 +13,10 @@ export const oneHandWeapons: EquipmentType[] = [
     caracModifs: [
       [INI, 1],
       [ATT, 1],
+      [DEF, 1],
     ],
     capacities: [],
-    cost: 3,
+    cost: 5,
   },
   {
     name: 'Machette',
@@ -48,8 +49,8 @@ export const oneHandWeapons: EquipmentType[] = [
   },
   {
     name: 'Dague',
-    caracModifs: [],
-    capacities: ['Assassin', 'Reflexes'],
+    caracModifs: [[INI, 1]],
+    capacities: ['Assassin'],
     cost: 6,
   },
   {
@@ -60,15 +61,18 @@ export const oneHandWeapons: EquipmentType[] = [
   },
   {
     name: 'Sabre',
-    caracModifs: [],
-    capacities: ['Fine lame', 'Enchaînement/+1'],
-    cost: 6,
+    caracModifs: [
+      [INI, 1],
+      [ATT, 1],
+    ],
+    capacities: ['Fine lame'],
+    cost: 7,
   },
   {
     name: 'Lance',
-    caracModifs: [],
+    caracModifs: [[ATT, 1]],
     capacities: ['FOR en charge/4'],
-    cost: 3,
+    cost: 4,
   },
   {
     name: 'Glaive',

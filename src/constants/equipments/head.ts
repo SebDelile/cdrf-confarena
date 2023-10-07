@@ -2,7 +2,7 @@ import { CARACS, ALLIANCES, CLASSES } from '..';
 import { EquipmentType, EQUIPMENT_RESTRICTIONS } from '.';
 
 const { magician, warriorMagician } = CLASSES;
-const { FOR, RES, COU, PEU, DIS } = CARACS;
+const { INI, FOR, RES, COU, PEU, DIS } = CARACS;
 const { voieLumiere, meandresTenebres, cheminDestin } = ALLIANCES;
 const { classe, scaryOne, alliance } = EQUIPMENT_RESTRICTIONS;
 
@@ -31,15 +31,15 @@ export const head: EquipmentType[] = [
   },
   {
     name: 'Heaume de prescience',
-    caracModifs: [],
-    capacities: ['Conscience', 'Esquive'],
+    caracModifs: [[INI, 1]],
+    capacities: ['Conscience'],
     cost: 7,
     restrictions: [[classe, false, [magician, warriorMagician]]],
   },
   {
     name: 'Courone de stratège',
-    caracModifs: [],
-    capacities: ['Rigueur', 'Stratège'],
+    caracModifs: [[DIS, 1]],
+    capacities: ['Rigueur'],
     cost: 5,
   },
   {
@@ -80,13 +80,13 @@ export const head: EquipmentType[] = [
   {
     name: 'Visière vif-acier',
     caracModifs: [],
-    capacities: ['Réflexes', 'Vivacité'],
-    cost: 4,
+    capacities: ['Vivacité'],
+    cost: 3,
   },
   {
     name: 'Peinture de guerre',
-    caracModifs: [],
-    capacities: ['Fanatisme', 'Instinct de survie/5'],
+    caracModifs: [[FOR, 1]],
+    capacities: ['Instinct de survie/5'],
     cost: 4,
     restrictions: [[alliance, true, [cheminDestin]]],
   },

@@ -1,7 +1,7 @@
 import { CARACS } from '..';
 import { EquipmentType } from '.';
 
-const { FOR, DEF, RES } = CARACS;
+const { INI, FOR, DEF, RES } = CARACS;
 
 export const shields: EquipmentType[] = [
   {
@@ -18,9 +18,12 @@ export const shields: EquipmentType[] = [
   },
   {
     name: 'Bouclier de fer',
-    caracModifs: [[RES, 2]],
+    caracModifs: [
+      [DEF, 1],
+      [RES, 2],
+    ],
     capacities: [],
-    cost: 3,
+    cost: 4,
   },
   {
     name: 'Pavois',
@@ -28,8 +31,8 @@ export const shields: EquipmentType[] = [
       [DEF, 1],
       [RES, 1],
     ],
-    capacities: [],
-    cost: 3,
+    capacities: ['Cible/+1'],
+    cost: 4,
   },
   {
     name: 'Gantelet à lame intégrée',
@@ -39,9 +42,12 @@ export const shields: EquipmentType[] = [
   },
   {
     name: 'Main gauche',
-    caracModifs: [[DEF, 1]],
+    caracModifs: [
+      [INI, 1],
+      [DEF, 1],
+    ],
     capacities: ['Membre supplémentaire'],
-    cost: 2,
+    cost: 3,
   },
   {
     name: 'Gantelet en acier',
@@ -51,8 +57,8 @@ export const shields: EquipmentType[] = [
   },
   {
     name: 'Rondache',
-    caracModifs: [],
-    capacities: ['Parade', 'cible/+1'],
+    caracModifs: [[INI, 1]],
+    capacities: ['Parade'],
     cost: 6,
   },
 ];

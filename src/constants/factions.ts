@@ -214,9 +214,8 @@ export const factions: FactionType[] = [
       { classes: [priest, warriorPriest], caracModifs: [[FOI, 1]], capacities: [], cost: 5 },
     ],
     localStuff: [
-      { name: 'Carburateur', cost: 0 },
-      { name: 'Arme à Naphthe (FOR+1d6)', cost: 3 },
-      { name: 'Arme de tir à Naphthe (FORTIR+1d6)', cost: 5 },
+      { name: 'Carburateur & Arme à Naphthe (FOR+1d6)', cost: 3 },
+      { name: 'Carburateur & Arme de tir à Naphthe (FORTIR+1d6)', cost: 5 },
     ],
   },
   {
@@ -371,7 +370,7 @@ export const factions: FactionType[] = [
     localStuff: [
       { name: 'Arme Noire', cost: 1 },
       { name: 'Armure Noire', cost: 1 },
-      { name: 'Arme de tirNoire', cost: 1 },
+      { name: 'Arme de tir Noire', cost: 1 },
     ],
   },
   {
@@ -398,7 +397,7 @@ export const factions: FactionType[] = [
     localStuff: [
       { name: 'Arme Noire', cost: 1 },
       { name: 'Armure Noire', cost: 1 },
-      { name: 'Arme de tirNoire', cost: 1 },
+      { name: 'Arme de tir Noire', cost: 1 },
     ],
   },
   {
@@ -447,9 +446,8 @@ export const factions: FactionType[] = [
       },
     ],
     localStuff: [
-      { name: 'Chaudière', cost: 0 },
-      { name: 'Arme à Vapeur (FOR+1d6)', cost: 3 },
-      { name: 'Arme de tir à Vapeur (FORTIR+1d6)', cost: 5 },
+      { name: 'Chaudière & Arme à Vapeur (FOR+1d6)', cost: 3 },
+      { name: 'Chaudière & Arme de tir à Vapeur (FORTIR+1d6)', cost: 5 },
     ],
   },
   {
@@ -468,9 +466,8 @@ export const factions: FactionType[] = [
       },
     ],
     localStuff: [
-      { name: 'Carburateur', cost: 0 },
-      { name: 'Arme à Naphthe (FOR+1d6)', cost: 3 },
-      { name: 'Arme de tir à Naphthe (FORTIR+1d6)', cost: 5 },
+      { name: 'Carburateur & Arme à Naphthe (FOR+1d6)', cost: 3 },
+      { name: 'Carburateur & Arme de tir à Naphthe (FORTIR+1d6)', cost: 5 },
     ],
   },
   {

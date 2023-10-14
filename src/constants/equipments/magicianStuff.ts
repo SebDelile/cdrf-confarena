@@ -27,7 +27,7 @@ export const magicianStuff: EquipmentType[] = [
   {
     name: 'Baguette magique',
     caracModifs: [[INI, 1]],
-    capacities: ['Esprit de/un élément ou grimoire au choix'],
+    capacities: ['Esprit de/Elément ou grimoire au choix'],
     cost: 7,
   },
   {

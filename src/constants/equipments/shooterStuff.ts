@@ -43,7 +43,7 @@ export const shooterStuff: EquipmentType[] = [
     caracModifs: [],
     capacities: ['Précision'],
     remoteWeapon: 'FORTIR 6 ∙ portée 30-60-90',
-    cost: 1,
+    cost: 6,
   },
   {
     name: 'Baliste',

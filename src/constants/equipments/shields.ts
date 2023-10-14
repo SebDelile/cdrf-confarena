@@ -17,6 +17,21 @@ export const shields: EquipmentType[] = [
     cost: 1,
   },
   {
+    name: 'Main gauche',
+    caracModifs: [
+      [INI, 1],
+      [DEF, 1],
+    ],
+    capacities: ['Membre supplémentaire'],
+    cost: 3,
+  },
+  {
+    name: 'Gantelet en acier',
+    caracModifs: [[RES, 1]],
+    capacities: ['Contre-attaque'],
+    cost: 4,
+  },
+  {
     name: 'Bouclier de fer',
     caracModifs: [
       [DEF, 1],
@@ -39,21 +54,6 @@ export const shields: EquipmentType[] = [
     caracModifs: [[FOR, 1]],
     capacities: ['Ambidextre'],
     cost: 6,
-  },
-  {
-    name: 'Main gauche',
-    caracModifs: [
-      [INI, 1],
-      [DEF, 1],
-    ],
-    capacities: ['Membre supplémentaire'],
-    cost: 3,
-  },
-  {
-    name: 'Gantelet en acier',
-    caracModifs: [[RES, 1]],
-    capacities: ['Contre-attaque'],
-    cost: 4,
   },
   {
     name: 'Rondache',

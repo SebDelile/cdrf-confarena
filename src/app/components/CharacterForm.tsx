@@ -23,11 +23,11 @@ export const CharacterForm = () => {
   return (
     <form className="w-full h-full flex flex-col gap-3 overflow-auto">
       <Controller name="classe" render={({ field }) => <SelectMenu {...field} label="Classe" options={profiles} />} />
-      <Controller name="faction" render={({ field }) => <SelectMenu {...field} label="Faction" options={factions} />} />
+      <Controller name="faction" render={({ field }) => <SelectMenu {...field} label="Peuple" options={factions} />} />
       <Controller
         name="localStuff"
         render={({ field }) => (
-          <SelectMenu {...field} label="Options de faction" options={currentForm.faction?.localStuff ?? []} multiple />
+          <SelectMenu {...field} label="Options de peuple" options={currentForm.faction?.localStuff ?? []} multiple />
         )}
       />
       <Controller

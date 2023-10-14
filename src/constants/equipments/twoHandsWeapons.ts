@@ -7,31 +7,6 @@ const { classe } = EQUIPMENT_RESTRICTIONS;
 
 export const twoHandsWeapons: EquipmentType[] = [
   {
-    name: 'Masse à deux mains',
-    caracModifs: [[FOR, 3]],
-    capacities: ['Brute épaisse'],
-    cost: 8,
-  },
-  {
-    name: 'Hache à deux mains',
-    caracModifs: [
-      [FOR, 5],
-      [DEF, -1],
-    ],
-    capacities: [],
-    cost: 10,
-    restrictions: [[classe, true, [warrior]]],
-  },
-  {
-    name: 'Hallebarde',
-    caracModifs: [
-      [ATT, 2],
-      [FOR, 1],
-    ],
-    capacities: ['Esquive'],
-    cost: 8,
-  },
-  {
     name: 'Vouge',
     caracModifs: [
       [INI, 1],
@@ -51,6 +26,32 @@ export const twoHandsWeapons: EquipmentType[] = [
     cost: 7,
   },
   {
+    name: 'Masse à deux mains',
+    caracModifs: [[FOR, 3]],
+    capacities: ['Brute épaisse'],
+    cost: 7,
+  },
+  {
+    name: 'Hallebarde',
+    caracModifs: [
+      [ATT, 2],
+      [FOR, 1],
+    ],
+    capacities: ['Esquive'],
+    cost: 8,
+  },
+  {
+    name: 'Claymore',
+    caracModifs: [
+      [INI, 1],
+      [ATT, 1],
+      [DEF, 1],
+      [FOR, 1],
+    ],
+    capacities: ['Coup de maître/3'],
+    cost: 8,
+  },
+  {
     name: 'Epée à deux mains',
     caracModifs: [
       [ATT, 1],
@@ -61,14 +62,13 @@ export const twoHandsWeapons: EquipmentType[] = [
     cost: 9,
   },
   {
-    name: 'Claymmore',
+    name: 'Hache à deux mains',
     caracModifs: [
-      [INI, 1],
-      [ATT, 1],
-      [DEF, 1],
-      [FOR, 1],
+      [FOR, 5],
+      [DEF, -1],
     ],
-    capacities: ['Coup de maître/3'],
-    cost: 8,
+    capacities: [],
+    cost: 10,
+    restrictions: [[classe, true, [warrior]]],
   },
 ];

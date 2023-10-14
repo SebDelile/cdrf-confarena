@@ -14,52 +14,10 @@ export const head: EquipmentType[] = [
     cost: 1,
   },
   {
-    name: 'Casque à plumet',
-    caracModifs: [
-      [COU, 1],
-      [DIS, 1],
-    ],
-    capacities: [],
-    cost: 4,
-  },
-  {
-    name: 'Troisième œil',
+    name: 'Visière vif-acier',
     caracModifs: [],
-    capacities: ['Conscience', 'Focus'],
-    cost: 10,
-    restrictions: [[classe, true, [magician, warriorMagician]]],
-  },
-  {
-    name: 'Heaume de prescience',
-    caracModifs: [[INI, 1]],
-    capacities: ['Conscience'],
-    cost: 7,
-    restrictions: [[classe, false, [magician, warriorMagician]]],
-  },
-  {
-    name: 'Courone de stratège',
-    caracModifs: [[DIS, 1]],
-    capacities: ['Rigueur'],
-    cost: 5,
-  },
-  {
-    name: 'Couronne de laurier',
-    caracModifs: [[DIS, 1]],
-    capacities: ['Autorité'],
-    cost: 4,
-  },
-  {
-    name: "Masque d'horreur",
-    caracModifs: [
-      [FOR, 1],
-      [RES, 1],
-    ],
-    capacities: ['Abominable'],
-    cost: 7,
-    restrictions: [
-      [scaryOne, true],
-      [alliance, true, [meandresTenebres]],
-    ],
+    capacities: ['Vivacité'],
+    cost: 3,
   },
   {
     name: 'Casque complet',
@@ -78,23 +36,69 @@ export const head: EquipmentType[] = [
     restrictions: [[scaryOne, true]],
   },
   {
-    name: 'Visière vif-acier',
-    caracModifs: [],
-    capacities: ['Vivacité'],
-    cost: 3,
+    name: 'Casque à plumet',
+    caracModifs: [
+      [COU, 1],
+      [DIS, 1],
+    ],
+    capacities: [],
+    cost: 4,
   },
   {
-    name: 'Peinture de guerre',
-    caracModifs: [[FOR, 1]],
-    capacities: ['Instinct de survie/5'],
+    name: 'Couronne de laurier',
+    caracModifs: [[DIS, 1]],
+    capacities: ['Autorité'],
     cost: 4,
+  },
+
+  {
+    name: 'Courone de stratège',
+    caracModifs: [[DIS, 1]],
+    capacities: ['Rigueur'],
+    cost: 5,
+  },
+  {
+    name: 'Heaume de prescience',
+    caracModifs: [[INI, 1]],
+    capacities: ['Conscience'],
+    cost: 6,
+    restrictions: [[classe, false, [magician, warriorMagician]]],
+  },
+  {
+    name: 'Peintures de guerre',
+    caracModifs: [
+      [COU, 1],
+      [FOR, 1],
+    ],
+    capacities: ['Instinct de survie/5'],
+    cost: 7,
     restrictions: [[alliance, true, [cheminDestin]]],
   },
   {
     name: 'Tiare de lumière',
     caracModifs: [[DIS, 1]],
     capacities: ['Hypérien/9'],
-    cost: 4,
+    cost: 7,
     restrictions: [[alliance, true, [voieLumiere]]],
+  },
+  {
+    name: "Masque d'horreur",
+    caracModifs: [
+      [FOR, 1],
+      [RES, 1],
+    ],
+    capacities: ['Abominable'],
+    cost: 7,
+    restrictions: [
+      [scaryOne, true],
+      [alliance, true, [meandresTenebres]],
+    ],
+  },
+  {
+    name: 'Troisième œil',
+    caracModifs: [],
+    capacities: ['Conscience', 'Focus'],
+    cost: 10,
+    restrictions: [[classe, true, [magician, warriorMagician]]],
   },
 ];

@@ -77,7 +77,7 @@ export const CharacterSheet = () => {
       <div>{`Compétences: ${capacities.length ? formatCapacities(capacities) : '-'}`}</div>
       <div>{`Capacité spéciale: ${specialEffects.length ? formatCapacities(specialEffects) : '-'}`}</div>
       <div>
-        {`Equipements de faction: ${localStuff.length ? formatCapacities(localStuff.map((stuff) => stuff.name)) : '-'}`}
+        {`Equipements de peuple: ${localStuff.length ? formatCapacities(localStuff.map((stuff) => stuff.name)) : '-'}`}
       </div>
       <div className="font-semibold">{`Coût total: ${cost}/50`}</div>
     </div>

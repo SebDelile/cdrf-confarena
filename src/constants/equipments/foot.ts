@@ -19,23 +19,11 @@ export const foot: EquipmentType[] = [
     cost: 3,
   },
   {
-    name: 'Bottes de sept lieux',
-    caracModifs: [[INI, 1]],
-    capacities: ['Rapidité'],
-    cost: 7,
-  },
-  {
     name: 'Bottes de ranger',
     caracModifs: [],
     capacities: ['Harcèlement'],
     cost: 4,
     restrictions: [[classe, true, [shooter, warriorShooter]]],
-  },
-  {
-    name: 'Sabots de démon',
-    caracModifs: [[MOU, 2.5]],
-    capacities: ['Implaccable/2'],
-    cost: 7,
   },
   {
     name: 'Sandales de maître',
@@ -48,6 +36,18 @@ export const foot: EquipmentType[] = [
     caracModifs: [[MOU, 2.5]],
     capacities: ['Bond'],
     cost: 6,
+  },
+  {
+    name: 'Sabots de démon',
+    caracModifs: [[MOU, 2.5]],
+    capacities: ['Implaccable/2'],
+    cost: 7,
+  },
+  {
+    name: 'Bottes de sept lieux',
+    caracModifs: [[INI, 1]],
+    capacities: ['Rapidité'],
+    cost: 7,
   },
   {
     name: 'Chaussons de fée',

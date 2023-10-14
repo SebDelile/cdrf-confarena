@@ -5,10 +5,10 @@ const { INI, RES, FOI } = CARACS;
 
 export const priestStuff: EquipmentType[] = [
   {
-    name: 'Inspiration',
-    caracModifs: [[FOI, 1]],
-    capacities: [],
-    cost: 7,
+    name: 'Encens béni',
+    caracModifs: [],
+    capacities: ['Piété/1'],
+    cost: 3,
   },
   {
     name: 'Ferveur ardente',
@@ -17,10 +17,11 @@ export const priestStuff: EquipmentType[] = [
     cost: 4,
   },
   {
-    name: 'Encens béni',
+    name: 'Instrument liturgique',
     caracModifs: [],
-    capacities: ['Piété/1'],
-    cost: 3,
+    capacities: [],
+    specialEffect: '+1 FT au déploiement/résurrection et à chaque phase mystique',
+    cost: 4,
   },
   {
     name: 'Relique sacrée',
@@ -29,10 +30,9 @@ export const priestStuff: EquipmentType[] = [
     cost: 7,
   },
   {
-    name: 'Instrument liturgique',
-    caracModifs: [],
+    name: 'Inspiration',
+    caracModifs: [[FOI, 1]],
     capacities: [],
-    specialEffect: '+1 FT au déploiement/résurection et à chaque phase mystique',
-    cost: 4,
+    cost: 7,
   },
 ];

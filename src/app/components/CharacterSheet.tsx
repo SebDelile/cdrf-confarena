@@ -1,4 +1,6 @@
-import { CARACS, CLASSES, CharacterProfileType, FormType } from '@/constants';
+import { CARACS, CLASSES, CharacterProfileType } from '@/constants';
+import { FormType } from '@/constants/formStructure';
+
 import { useMemo } from 'react';
 import { useWatch } from 'react-hook-form';
 import { applyProfileModifiers, formatCapacities } from '@/utils';

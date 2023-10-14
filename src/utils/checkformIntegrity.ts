@@ -1,5 +1,6 @@
 import { UseFormSetValue } from 'react-hook-form';
-import { CLASSES, FormType, EQUIPMENT_PARTS } from '@/constants';
+import { CLASSES, EQUIPMENT_PARTS } from '@/constants';
+import { FormType } from '@/constants/formStructure';
 import { getIsRestricted } from './getIsRestricted';
 
 const { warrior, shooter, magician, priest, warriorShooter, warriorMagician, warriorPriest } = CLASSES;

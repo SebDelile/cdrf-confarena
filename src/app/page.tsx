@@ -1,20 +1,26 @@
 'use client';
 import { useEffect } from 'react';
 import { useForm, FormProvider } from 'react-hook-form';
-import { formDefault } from '@/constants';
 import { CharacterForm } from './components/CharacterForm';
 import { checkformIntegrity } from '@/utils/checkformIntegrity';
 import { CharacterSheet } from './components/CharacterSheet';
+import { setQueryParamFromForm, getFormFromQueryParam } from '@/utils/formQueryParamConverter';
+import { useSearchParams } from 'next/navigation';
+
+const SEARCH_PARAM_KEY = 'profile';
 
 export default function Home() {
+  const searchParams = useSearchParams();
   const methods = useForm({
-    defaultValues: formDefault,
+    defaultValues: getFormFromQueryParam(searchParams.get(SEARCH_PARAM_KEY) || ''),
   });
   const { watch, setValue } = methods;
   const currentForm = watch();
 
   useEffect(() => {
-    //console.log(currentForm);
+    // console.log(currentForm);
+    // next's app router doesn't allow shallow update for now, see https://github.com/vercel/next.js/discussions/48110
+    history.replaceState(null, '', `/?${SEARCH_PARAM_KEY}=${setQueryParamFromForm(currentForm)}`);
     checkformIntegrity(currentForm, setValue);
   }, [currentForm, setValue]);
 

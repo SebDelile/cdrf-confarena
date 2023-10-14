@@ -48,27 +48,6 @@ export enum GEMMES {
   terre = 'Terre',
 }
 
-export const formDefault = {
-  classe: null as ProfileType | null,
-  faction: null as FactionType | null,
-  localStuff: [] as LocalStuffType[],
-  oneHandWeapon1: null as EquipmentType | null,
-  oneHandWeapon2: null as EquipmentType | null,
-  twoHandsWeapon: null as EquipmentType | null,
-  shield: null as EquipmentType | null,
-  head: null as EquipmentType | null,
-  body: null as EquipmentType | null,
-  foot: null as EquipmentType | null,
-  accessory1: null as EquipmentType | null,
-  accessory2: null as EquipmentType | null,
-  warriorStuff: null as EquipmentType | null,
-  shooterStuff: null as EquipmentType | null,
-  magicianStuff: null as EquipmentType | null,
-  priestStuff: null as EquipmentType | null,
-};
-
-export type FormType = typeof formDefault;
-
 export enum EQUIPMENT_PARTS {
   oneHandWeapon1Part = 'oneHandWeapon1',
   oneHandWeapon2Part = 'oneHandWeapon2',

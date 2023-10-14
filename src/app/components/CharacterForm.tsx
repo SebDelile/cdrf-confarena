@@ -13,7 +13,8 @@ import { warriorStuff } from '@/constants/equipments/warriorStuff';
 import { shooterStuff } from '@/constants/equipments/shooterStuff';
 import { magicianStuff } from '@/constants/equipments/magicianStuff';
 import { priestStuff } from '@/constants/equipments/priestStuff';
-import { CLASSES, FormType } from '@/constants';
+import { CLASSES } from '@/constants';
+import { FormType } from '@/constants/formStructure';
 
 const { warrior, shooter, magician, priest, warriorShooter, warriorMagician, warriorPriest } = CLASSES;
 

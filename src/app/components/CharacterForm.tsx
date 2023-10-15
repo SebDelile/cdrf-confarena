@@ -14,7 +14,7 @@ import { shooterStuff } from '@/constants/equipments/shooterStuff';
 import { magicianStuff } from '@/constants/equipments/magicianStuff';
 import { priestStuff } from '@/constants/equipments/priestStuff';
 import { CLASSES } from '@/constants';
-import { FormType } from '@/constants/formStructure';
+import { FormType, formFieldToOptions } from '@/constants/formStructure';
 
 const { warrior, shooter, magician, priest, warriorShooter, warriorMagician, warriorPriest } = CLASSES;
 
@@ -30,6 +30,18 @@ export const CharacterForm = () => {
           <SelectMenu {...field} label="Options de peuple" options={currentForm.faction?.localStuff ?? []} multiple />
         )}
       />
+      {currentForm.faction?.name === 'Cité franche de Cadwallon' && (
+        <Controller
+          name="cadweBonusStuff"
+          render={({ field }) => (
+            <SelectMenu
+              {...field}
+              label="Equipement supplémentaire"
+              options={currentForm.localStuff[0]?.options ? formFieldToOptions[currentForm.localStuff[0].options] : []}
+            />
+          )}
+        />
+      )}
       <Controller
         name="oneHandWeapon1"
         render={({ field }) => (

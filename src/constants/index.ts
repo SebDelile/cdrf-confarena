@@ -62,6 +62,7 @@ export enum EQUIPMENT_PARTS {
   shooterStuffPart = 'shooterStuff',
   magicianStuffPart = 'magicianStuff',
   priestStuffPart = 'priestStuff',
+  cadweBonusStuff = 'cadweBonusStuff',
 }
 
 export type CharacterProfileType = ProfileType & {

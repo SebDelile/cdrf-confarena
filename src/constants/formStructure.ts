@@ -30,6 +30,7 @@ export const formDefault = {
   shooterStuff: null as EquipmentType | null,
   magicianStuff: null as EquipmentType | null,
   priestStuff: null as EquipmentType | null,
+  cadweBonusStuff: null as EquipmentType | null,
 };
 
 export type FormType = typeof formDefault;
@@ -53,4 +54,5 @@ export const formFieldToOptions = {
   shooterStuff: shooterStuff,
   magicianStuff: magicianStuff,
   priestStuff: priestStuff,
+  cadweBonusStuff: [], // dyanmically added,
 };

@@ -2,11 +2,10 @@ import { FormType, formDefault, formFieldToOptions, formFieldsSequence } from '@
 import { alphaNumToBin, binToAlphaNum } from '.';
 
 const NO_SELECTION_INDEX = 31;
-const version = process.env.NEXT_PUBLIC_APP_VERSION;
 
-export const getFormFromQueryParam = (queryParam: string | null, v: string | null): FormType => {
+export const getFormFromQueryParam = (queryParam: string): FormType => {
   let error = false;
-  if (!queryParam || v !== version) return formDefault;
+  if (!queryParam) return formDefault;
   // deep copy
   const form = { ...formDefault, localStuff: [...formDefault.localStuff] };
   const binaryQueryParam = alphaNumToBin(queryParam);

@@ -8,11 +8,12 @@ import { setQueryParamFromForm, getFormFromQueryParam } from '@/utils/formQueryP
 import { useSearchParams } from 'next/navigation';
 
 const SEARCH_PARAM_KEY = 'profile';
+const version = process.env.NEXT_PUBLIC_APP_VERSION;
 
 export default function Home() {
   const searchParams = useSearchParams();
   const methods = useForm({
-    defaultValues: getFormFromQueryParam(searchParams.get(SEARCH_PARAM_KEY) || ''),
+    defaultValues: getFormFromQueryParam(searchParams.get(SEARCH_PARAM_KEY), searchParams.get('v')),
   });
   const { watch, setValue } = methods;
   const currentForm = watch();
@@ -20,7 +21,7 @@ export default function Home() {
   useEffect(() => {
     // console.log(currentForm);
     // next's app router doesn't allow shallow update for now, see https://github.com/vercel/next.js/discussions/48110
-    history.replaceState(null, '', `/?${SEARCH_PARAM_KEY}=${setQueryParamFromForm(currentForm)}`);
+    history.replaceState(null, '', `/?v=${version}&${SEARCH_PARAM_KEY}=${setQueryParamFromForm(currentForm)}`);
     checkformIntegrity(currentForm, setValue);
   }, [currentForm, setValue]);
 

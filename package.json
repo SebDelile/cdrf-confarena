@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "prebuild": "node sync-version.js",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
@@ -26,6 +27,7 @@
     "typescript": "5.2.2"
   },
   "devDependencies": {
+    "dotenv": "^16.3.1",
     "prettier": "^3.0.3"
   }
 }

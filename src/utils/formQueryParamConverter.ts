@@ -4,15 +4,16 @@ import { alphaNumToBin, binToAlphaNum } from '.';
 const NO_SELECTION_INDEX = 31;
 
 export const getFormFromQueryParam = (queryParam: string): FormType => {
+  let error = false;
   // deep copy
   const form = { ...formDefault, localStuff: [...formDefault.localStuff] };
   if (!queryParam) return formDefault;
   const binaryQueryParam = alphaNumToBin(queryParam);
-  // each form entry is stored on 5-bits
   let localStuffBinary = '';
   let cadweBonusStuffIndex = NO_SELECTION_INDEX;
   formFieldsSequence.forEach((field, index) => {
     if (field === 'localStuff') {
+      // each form entry is stored on 5-bits
       localStuffBinary = binaryQueryParam.slice(index * 5, (index + 1) * 5);
     } else {
       const optionIndex = parseInt(binaryQueryParam.slice(index * 5, (index + 1) * 5), 2);
@@ -21,8 +22,13 @@ export const getFormFromQueryParam = (queryParam: string): FormType => {
       } else {
         // 2^5 means no selection
         if (optionIndex !== NO_SELECTION_INDEX) {
-          // @ts-ignore as the field are the same, the type of the field as well (TS doesn't narrow by itself)
-          form[field] = formFieldToOptions[field][optionIndex];
+          const selectedOption = formFieldToOptions[field][optionIndex];
+          if (selectedOption) {
+            // @ts-ignore as the field are the same, the type of the field as well (TS doesn't narrow by itself)
+            form[field] = selectedOption;
+          } else {
+            error = true;
+          }
         }
       }
     }
@@ -36,19 +42,28 @@ export const getFormFromQueryParam = (queryParam: string): FormType => {
       form.localStuff = [form.faction.localStuff[localStuffIndex]];
       if (cadweBonusStuffIndex !== NO_SELECTION_INDEX) {
         // @ts-ignore as the field are the same, the type of the field as well (TS doesn't narrow by itself)
-        form.cadweBonusStuff = formFieldToOptions[form.localStuff[0].options][cadweBonusStuffIndex];
+        const selectedLocalStuff = formFieldToOptions[form.localStuff[0].options][cadweBonusStuffIndex];
+        if (selectedLocalStuff) {
+          form.cadweBonusStuff = selectedLocalStuff;
+        } else {
+          error = true;
+        }
       }
     }
   } else {
     Array.from(localStuffBinary).forEach((entry, index) => {
       if (entry === '1') {
         const checkedLocalStuff = form.faction?.localStuff[index];
-        if (checkedLocalStuff) form.localStuff.push(checkedLocalStuff);
+        if (checkedLocalStuff) {
+          form.localStuff.push(checkedLocalStuff);
+        } else {
+          error = true;
+        }
       }
     });
   }
 
-  return form;
+  return error ? formDefault : form;
 };
 
 export const setQueryParamFromForm = (form: FormType): string => {

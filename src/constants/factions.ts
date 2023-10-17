@@ -1,4 +1,5 @@
 import { CLASSES, CARACS, ALLIANCES, GEMMES } from '.';
+import { FormType } from './formStructure';
 
 const { all, shooter, warriorShooter, magician, warriorMagician, priest, warriorPriest } = CLASSES;
 const { MOU, INI, FOR, RES, COU, PEU, DIS, TIR, POU, FOI } = CARACS;
@@ -11,7 +12,7 @@ export type profileModifType = {
   capacities: string[];
   cost: number;
 };
-export type LocalStuffType = { name: string; cost: number };
+export type LocalStuffType = { name: string; cost: number; options?: keyof FormType };
 export type FactionType = {
   name: string;
   alliance: ALLIANCES;
@@ -89,7 +90,15 @@ export const factions: FactionType[] = [
         cost: 0,
       },
     ],
-    localStuff: [{ name: 'Equipement supplémentaire', cost: 2 }],
+    localStuff: [
+      { name: 'Arme à une main supplémentaire', cost: 2, options: 'oneHandWeapon1' },
+      { name: 'Arme à deux mains supplémentaire', cost: 2, options: 'twoHandsWeapon' },
+      { name: 'Bouclier supplémentaire', cost: 2, options: 'shield' },
+      { name: 'Equipement de Tête supplémentaire', cost: 2, options: 'head' },
+      { name: 'Equipement de corps supplémentaire', cost: 2, options: 'body' },
+      { name: 'Equipement de pieds supplémentaire', cost: 2, options: 'foot' },
+      { name: 'Accessoire supplémentaire', cost: 2, options: 'accessory1' },
+    ],
   },
   {
     name: 'Dévoreurs de Vile-Tis (wolfen)',
@@ -214,9 +223,8 @@ export const factions: FactionType[] = [
       { classes: [priest, warriorPriest], caracModifs: [[FOI, 1]], capacities: [], cost: 5 },
     ],
     localStuff: [
-      { name: 'Carburateur', cost: 0 },
-      { name: 'Arme à Naphthe (FOR+1d6)', cost: 3 },
-      { name: 'Arme de tir à Naphthe (FORTIR+1d6)', cost: 5 },
+      { name: 'Carburateur & Arme à Naphthe (FOR+1d6)', cost: 3 },
+      { name: 'Carburateur & Arme de tir à Naphthe (FORTIR+1d6)', cost: 5 },
     ],
   },
   {
@@ -371,7 +379,7 @@ export const factions: FactionType[] = [
     localStuff: [
       { name: 'Arme Noire', cost: 1 },
       { name: 'Armure Noire', cost: 1 },
-      { name: 'Arme de tirNoire', cost: 1 },
+      { name: 'Arme de tir Noire', cost: 1 },
     ],
   },
   {
@@ -398,7 +406,7 @@ export const factions: FactionType[] = [
     localStuff: [
       { name: 'Arme Noire', cost: 1 },
       { name: 'Armure Noire', cost: 1 },
-      { name: 'Arme de tirNoire', cost: 1 },
+      { name: 'Arme de tir Noire', cost: 1 },
     ],
   },
   {
@@ -447,9 +455,8 @@ export const factions: FactionType[] = [
       },
     ],
     localStuff: [
-      { name: 'Chaudière', cost: 0 },
-      { name: 'Arme à Vapeur (FOR+1d6)', cost: 3 },
-      { name: 'Arme de tir à Vapeur (FORTIR+1d6)', cost: 5 },
+      { name: 'Chaudière & Arme à Vapeur (FOR+1d6)', cost: 3 },
+      { name: 'Chaudière & Arme de tir à Vapeur (FORTIR+1d6)', cost: 5 },
     ],
   },
   {
@@ -468,9 +475,8 @@ export const factions: FactionType[] = [
       },
     ],
     localStuff: [
-      { name: 'Carburateur', cost: 0 },
-      { name: 'Arme à Naphthe (FOR+1d6)', cost: 3 },
-      { name: 'Arme de tir à Naphthe (FORTIR+1d6)', cost: 5 },
+      { name: 'Carburateur & Arme à Naphthe (FOR+1d6)', cost: 3 },
+      { name: 'Carburateur & Arme de tir à Naphthe (FORTIR+1d6)', cost: 5 },
     ],
   },
   {

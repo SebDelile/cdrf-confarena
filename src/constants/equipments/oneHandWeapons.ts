@@ -1,22 +1,13 @@
 import { CARACS } from '..';
 import { EquipmentType } from '.';
 
-const { INI, ATT, FOR } = CARACS;
+const { INI, ATT, FOR, DEF } = CARACS;
 
 export const oneHandWeapons: EquipmentType[] = [
   { name: 'Cimeterre', caracModifs: [[INI, 1]], capacities: [], cost: 1 },
   { name: 'Morgenstern', caracModifs: [[ATT, 1]], capacities: [], cost: 1 },
   { name: 'Hache', caracModifs: [[FOR, 1]], capacities: [], cost: 1 },
   { name: 'Marteau', caracModifs: [[FOR, 2]], capacities: [], cost: 3 },
-  {
-    name: 'Epée',
-    caracModifs: [
-      [INI, 1],
-      [ATT, 1],
-    ],
-    capacities: [],
-    cost: 3,
-  },
   {
     name: 'Machette',
     caracModifs: [[FOR, 1]],
@@ -41,16 +32,20 @@ export const oneHandWeapons: EquipmentType[] = [
   },
   { name: 'Masse', caracModifs: [[FOR, 1]], capacities: ['Brutal'], cost: 4 },
   {
-    name: 'Lame divine',
-    caracModifs: [],
-    capacities: ['Arme Sacrée/Combat'],
-    cost: 6,
+    name: 'Lance',
+    caracModifs: [[ATT, 1]],
+    capacities: ['FOR en charge/4'],
+    cost: 4,
   },
   {
-    name: 'Dague',
-    caracModifs: [],
-    capacities: ['Assassin', 'Reflexes'],
-    cost: 6,
+    name: 'Epée',
+    caracModifs: [
+      [INI, 1],
+      [ATT, 1],
+      [DEF, 1],
+    ],
+    capacities: [],
+    cost: 5,
   },
   {
     name: 'Fléau',
@@ -59,21 +54,30 @@ export const oneHandWeapons: EquipmentType[] = [
     cost: 5,
   },
   {
-    name: 'Sabre',
+    name: 'Lame divine',
     caracModifs: [],
-    capacities: ['Fine lame', 'Enchaînement/+1'],
+    capacities: ['Arme Sacrée/Combat'],
     cost: 6,
   },
   {
-    name: 'Lance',
-    caracModifs: [],
-    capacities: ['FOR en charge/4'],
-    cost: 3,
+    name: 'Dague',
+    caracModifs: [[INI, 1]],
+    capacities: ['Assassin'],
+    cost: 6,
   },
   {
     name: 'Glaive',
     caracModifs: [[ATT, 1]],
     capacities: ['Furie guerrière'],
     cost: 6,
+  },
+  {
+    name: 'Sabre',
+    caracModifs: [
+      [INI, 1],
+      [ATT, 1],
+    ],
+    capacities: ['Fine lame'],
+    cost: 7,
   },
 ];

@@ -1,5 +1,6 @@
 import { CARACS, CharacterProfileType, JOIN_ELEMENT } from '@/constants';
 import { RestrictionType } from '@/constants/equipments';
+import { formFieldsSequence } from '@/constants/formStructure';
 
 export const formatCaracModifiers = (caracmodifiers: [CARACS, number][]) =>
   caracmodifiers
@@ -46,3 +47,11 @@ export const applyProfileModifiers = (
   if (specialEffect) profile.specialEffects.push(specialEffect);
   profile.cost += cost;
 };
+
+export const binToAlphaNum = (bin: string): string => BigInt('0b' + bin).toString(36);
+
+export const alphaNumToBin = (alphaNum: string): string =>
+  Array.from(alphaNum)
+    .reduce((acc, cur) => acc * BigInt(36) + BigInt(parseInt(cur, 36)), BigInt(0))
+    .toString(2)
+    .padStart(formFieldsSequence.length * 5, '0');

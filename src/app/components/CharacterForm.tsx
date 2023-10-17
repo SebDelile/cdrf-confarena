@@ -13,7 +13,8 @@ import { warriorStuff } from '@/constants/equipments/warriorStuff';
 import { shooterStuff } from '@/constants/equipments/shooterStuff';
 import { magicianStuff } from '@/constants/equipments/magicianStuff';
 import { priestStuff } from '@/constants/equipments/priestStuff';
-import { CLASSES, FormType } from '@/constants';
+import { CLASSES } from '@/constants';
+import { FormType, formFieldToOptions } from '@/constants/formStructure';
 
 const { warrior, shooter, magician, priest, warriorShooter, warriorMagician, warriorPriest } = CLASSES;
 
@@ -22,13 +23,25 @@ export const CharacterForm = () => {
   return (
     <form className="w-full h-full flex flex-col gap-3 overflow-auto">
       <Controller name="classe" render={({ field }) => <SelectMenu {...field} label="Classe" options={profiles} />} />
-      <Controller name="faction" render={({ field }) => <SelectMenu {...field} label="Faction" options={factions} />} />
+      <Controller name="faction" render={({ field }) => <SelectMenu {...field} label="Peuple" options={factions} />} />
       <Controller
         name="localStuff"
         render={({ field }) => (
-          <SelectMenu {...field} label="Options de faction" options={currentForm.faction?.localStuff ?? []} multiple />
+          <SelectMenu {...field} label="Options de peuple" options={currentForm.faction?.localStuff ?? []} multiple />
         )}
       />
+      {currentForm.faction?.name === 'Cité franche de Cadwallon' && (
+        <Controller
+          name="cadweBonusStuff"
+          render={({ field }) => (
+            <SelectMenu
+              {...field}
+              label="Equipement supplémentaire"
+              options={currentForm.localStuff[0]?.options ? formFieldToOptions[currentForm.localStuff[0].options] : []}
+            />
+          )}
+        />
+      )}
       <Controller
         name="oneHandWeapon1"
         render={({ field }) => (

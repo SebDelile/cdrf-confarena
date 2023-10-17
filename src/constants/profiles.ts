@@ -62,7 +62,7 @@ export const profiles: ProfileType[] = [
       [POU]: 4,
       [FOI]: null,
     },
-    capacities: ['Enchainement/1', "Initié d'un Elément/un Grimoire", 'Maîtrise des Arcane'],
+    capacities: ['Enchainement/1', "Initié d'un Elément de base/un Grimoire", 'Maîtrise des Arcane'],
   },
   {
     name: priest,
@@ -120,7 +120,7 @@ export const profiles: ProfileType[] = [
       'Enchainement/2',
       'Contre-attaque',
       'Coup de maître/0',
-      "Initié d'un Elément/un Grimoire",
+      "Initié d'un Elément de base/un Grimoire",
       'Guerier-mage',
     ],
   },

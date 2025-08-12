@@ -1,5 +1,5 @@
 'use client';
-import { useEffect, useMemo } from 'react';
+import { Suspense, useEffect, useMemo } from 'react';
 import { useForm, FormProvider } from 'react-hook-form';
 import { CharacterForm } from './components/CharacterForm';
 import { checkformIntegrity } from '@/utils/checkformIntegrity';
@@ -10,7 +10,7 @@ import { formDefault } from '@/constants/formStructure';
 
 const version = process.env.NEXT_PUBLIC_APP_VERSION ?? '0.0';
 
-export default function Home() {
+function Home() {
   const searchParams = useSearchParams();
   const queryProfile = searchParams.get('p') ?? '';
   const queryVersion = searchParams.get('v') ?? '';
@@ -44,5 +44,13 @@ export default function Home() {
         <CharacterSheet />
       </FormProvider>
     </main>
+  );
+}
+
+export default function SuspensedHome() {
+  return (
+    <Suspense>
+      <Home />
+    </Suspense>
   );
 }

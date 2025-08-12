@@ -4,6 +4,7 @@ import { FormType } from '@/constants/formStructure';
 import { useMemo } from 'react';
 import { useWatch } from 'react-hook-form';
 import { applyProfileModifiers, formatCapacities } from '@/utils';
+import { CharacterCard } from './CharacterCard';
 
 export const CharacterSheet = () => {
   const currentForm = useWatch() as FormType;
@@ -12,7 +13,7 @@ export const CharacterSheet = () => {
     if (!classe) return null;
     const profile: CharacterProfileType = {
       ...classe,
-      factionName: faction?.name ?? null,
+      faction,
       localStuff,
       specialEffects: [],
       remoteWeapon: null,
@@ -45,13 +46,14 @@ export const CharacterSheet = () => {
       }
     });
 
-    //handle COU for Scary ones
+    // handle COU for Scary ones
     if (profile.caracs[CARACS.PEU] !== null) {
       profile.caracs[CARACS.COU] = Math.max(profile.caracs[CARACS.COU]!, profile.caracs[CARACS.PEU]!);
     }
 
-    // clean duplicates
-    // handle capacity enhancement (enchainement, cible)
+    // TODO: handle magic/god
+    // TODO: clean duplicates
+    // TODO: handle capacity enhancement (enchainement, cible)
 
     return profile;
   }, [currentForm]);
@@ -69,7 +71,8 @@ export const CharacterSheet = () => {
 
   return (
     <div className="flex flex-col gap-4">
-      <div className="font-semibold">Resultat</div>
+      <CharacterCard characterProfile={characterProfile} />
+      <div className="font-semibold mt-12">Resultat</div>
       <div>{`${MOU} · ${INI} · ${ATT}/${FOR} · ${DEF}/${RES} · ${PEU ? -PEU : COU}/${DIS}`}</div>
       {TIR && <div>{`Tir: ${TIR} · ${remoteWeapon}`}</div>}
       {POU && <div>{`Pouvoir: ${POU}`}</div>}

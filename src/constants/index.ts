@@ -66,7 +66,7 @@ export enum EQUIPMENT_PARTS {
 }
 
 export type CharacterProfileType = ProfileType & {
-  factionName: string | null;
+  faction: FactionType | null;
   localStuff: LocalStuffType[];
   specialEffects: string[];
   remoteWeapon: string | null;

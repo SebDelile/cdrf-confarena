@@ -1,16 +1,17 @@
 import { CARACS, CLASSES, CharacterProfileType } from '@/constants';
 import { FormType } from '@/constants/formStructure';
 
-import { useMemo } from 'react';
+import { useMemo, useState } from 'react';
 import { useWatch } from 'react-hook-form';
 import { applyProfileModifiers, formatCapacities } from '@/utils';
 import { CharacterCard } from './CharacterCard';
 
 export const CharacterSheet = () => {
+  const [championName, setChampionName] = useState('');
   const currentForm = useWatch() as FormType;
   const characterProfile = useMemo(() => {
     const { faction, classe, localStuff, ...equipments } = currentForm;
-    if (!classe) return null;
+    if (!classe || !faction) return null;
     const profile: CharacterProfileType = {
       ...classe,
       faction,
@@ -41,10 +42,14 @@ export const CharacterSheet = () => {
     Object.values(equipments).forEach((equipment) => {
       if (equipment) {
         const { caracModifs, capacities, specialEffect, cost, remoteWeapon } = equipment;
-        if (remoteWeapon) profile.remoteWeapon = remoteWeapon;
+        // if (remoteWeapon) profile.remoteWeapon = remoteWeapon;
         applyProfileModifiers(profile, cost, caracModifs, capacities, specialEffect);
       }
     });
+
+    // set remote weapon profile
+    if (equipments.shooterStuff)
+      profile.remoteWeapon = `${equipments.shooterStuff.name}: ${equipments.shooterStuff.remoteWeapon}`;
 
     // handle COU for Scary ones
     if (profile.caracs[CARACS.PEU] !== null) {
@@ -71,8 +76,18 @@ export const CharacterSheet = () => {
 
   return (
     <div className="flex flex-col gap-4">
-      <CharacterCard characterProfile={characterProfile} />
-      <div className="font-semibold mt-12">Resultat</div>
+      <div className="self-center">
+        <CharacterCard characterProfile={characterProfile} championName={championName} />
+      </div>
+      <label>
+        <p>Nom du Champion</p>
+        <input
+          type="text"
+          className="form-input"
+          value={championName}
+          onChange={(e) => setChampionName(e.target.value)}
+        />
+      </label>
       <div>{`${MOU} · ${INI} · ${ATT}/${FOR} · ${DEF}/${RES} · ${PEU ? -PEU : COU}/${DIS}`}</div>
       {TIR && <div>{`Tir: ${TIR} · ${remoteWeapon}`}</div>}
       {POU && <div>{`Pouvoir: ${POU}`}</div>}
@@ -82,7 +97,7 @@ export const CharacterSheet = () => {
       <div>
         {`Equipements de peuple: ${localStuff.length ? formatCapacities(localStuff.map((stuff) => stuff.name)) : '-'}`}
       </div>
-      <div className="font-semibold">{`Coût total: ${cost}/50`}</div>
+      <div className={`font-semibold ${cost > 50 ? 'text-red-500' : ''}`}>{`Coût total: ${cost}/50`}</div>
     </div>
   );
 };

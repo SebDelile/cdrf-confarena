@@ -1,9 +1,9 @@
-import { CARACS, ALLIANCES, CLASSES } from '..';
+import { CARACS, ALLIANCES_FORMATTED, CLASSES } from '..';
 import { EquipmentType, EQUIPMENT_RESTRICTIONS } from '.';
 
 const { magician, warriorMagician } = CLASSES;
 const { INI, FOR, RES, COU, PEU, DIS } = CARACS;
-const { voieLumiere, meandresTenebres, cheminDestin } = ALLIANCES;
+const { voieLumiere, meandresTenebres, cheminDestin } = ALLIANCES_FORMATTED;
 const { classe, scaryOne, alliance } = EQUIPMENT_RESTRICTIONS;
 
 export const head: EquipmentType[] = [

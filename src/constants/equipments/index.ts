@@ -1,9 +1,9 @@
-import { ALLIANCES, CARACS, CLASSES } from '..';
+import { ALLIANCES_FORMATTED, CARACS, CLASSES } from '..';
 
 export type RestrictionType = [
   restrictionType: EQUIPMENT_RESTRICTIONS,
   isAllowed: boolean,
-  relatedItems?: (CLASSES | ALLIANCES)[],
+  relatedItems?: (CLASSES | ALLIANCES_FORMATTED)[],
 ];
 
 export type EquipmentType = {

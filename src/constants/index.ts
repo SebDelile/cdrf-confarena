@@ -33,10 +33,36 @@ export enum CLASSES {
 }
 
 export enum ALLIANCES {
+  voieLumiere = 'LUM',
+  meandresTenebres = 'TEN',
+  cheminDestin = 'DES',
+  autresAlliances = 'CAD',
+}
+export enum ALLIANCES_FORMATTED {
   voieLumiere = 'Voies de la lumières',
   meandresTenebres = 'Méandres des Ténèbres',
   cheminDestin = 'Chemins du Destin',
   autresAlliances = 'Autres Alliances',
+}
+
+export enum PEUPLES {
+  acheron = 'acheron',
+  behemoth = 'behemoth',
+  branokor = 'branokor',
+  cadwallon = 'cadwallon',
+  cynwall = 'cynwall',
+  daikinee = 'daikinee',
+  devoreur = 'devoreur',
+  dirz = 'dirz',
+  drune = 'drune',
+  gobelin = 'gobelin',
+  griffon = 'griffon',
+  lion = 'lion',
+  midnor = 'midnor',
+  ophidien = 'ophidien',
+  sessair = 'sessair',
+  tirnabor = 'tirnabor',
+  wolfen = 'wolfen',
 }
 
 export enum GEMMES {

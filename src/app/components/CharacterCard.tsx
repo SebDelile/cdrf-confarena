@@ -1,4 +1,5 @@
 import { useMemo, useRef } from 'react';
+import { useSearchParams } from 'next/navigation';
 
 import { ALLIANCES, CharacterProfileType } from '@/constants';
 import {
@@ -24,6 +25,10 @@ import {
   SPE_TEXT_PROPS,
   NAME_TEXT_PROPS,
   CLASS_TEXT_PROPS,
+  REFERENCE_TEXT_PROPS,
+  MOU_GROUND_TEXT_PROPS,
+  MOU_SEPARATOR_PROPS,
+  MOU_FLY_TEXT_PROPS,
 } from '@/constants/card';
 import { goudyFont } from '@/utils/fonts';
 import { CharacterCardText } from './CharacterCardText';
@@ -35,6 +40,10 @@ type PropTypes = {
 };
 
 export const CharacterCard = ({ characterProfile, championName }: PropTypes) => {
+  const searchParams = useSearchParams();
+  const queryProfile = searchParams.get('p') ?? '';
+  const queryVersion = searchParams.get('v') ?? '';
+
   const {
     name,
     caracs: { MOU, INI, ATT, FOR, DEF, RES, COU, PEU, DIS, TIR, POU, FOI },
@@ -63,34 +72,52 @@ export const CharacterCard = ({ characterProfile, championName }: PropTypes) => 
     };
   }, [faction, PEU]);
 
+  const mainColorText = faction?.alliance === ALLIANCES.meandresTenebres ? 'white' : 'black';
+  const secondaryColorText = faction?.alliance === ALLIANCES.meandresTenebres ? 'black' : 'white';
+  const hasConcentration = capacities.some((capacity) => capacity.startsWith('Concentration'));
+  const concentrationIconTextStyle = hasConcentration
+    ? { fill: secondaryColorText, filter: `url(#halo-${mainColorText})` }
+    : {};
+  const hasVol = capacities.some((capacity) => capacity === 'Vol');
+
   return (
     <svg
       ref={svgNode}
       {...CARD_DIMENSIONS}
       style={{
         fontFamily: goudyFont.style.fontFamily,
-        fill: faction?.alliance === ALLIANCES.meandresTenebres ? 'white' : 'black',
+        fill: mainColorText,
       }}
     >
       <SvgTextHalo />
       <image x={0} y={0} {...CARD_DIMENSIONS} href={hrefs.cardBackground} />
-      <text {...NAME_TEXT_PROPS} filter="url(#halo)">
+      <text {...NAME_TEXT_PROPS} filter="url(#halo-black)">
         {championName.toUpperCase()}
       </text>
       <text {...CLASS_TEXT_PROPS}>{name}</text>
       <image {...ARMY_ICON_PROPS} href={hrefs.armyIcon} />
       <image {...MOU_ICON_PROPS} href={hrefs.mouIcon} />
-      <text {...MOU_TEXT_PROPS}>{String(MOU).replace('.', ',')}</text>
+      <text {...MOU_TEXT_PROPS} {...(hasVol && { letterSpacing: -1.5 })}>
+        {(hasVol ? [MOU, MOU + 5] : [MOU]).map((mou) => String(mou).replace('.', ',')).join('/')}
+      </text>
       <image {...INI_ICON_PROPS} href={hrefs.iniIcon} />
-      <text {...INI_TEXT_PROPS}>{INI}</text>
+      <text {...INI_TEXT_PROPS} {...concentrationIconTextStyle}>
+        {INI}
+      </text>
       <image {...ATT_ICON_PROPS} href={hrefs.attIcon} />
-      <text {...ATT_TEXT_PROPS}>{ATT}</text>
+      <text {...ATT_TEXT_PROPS} {...concentrationIconTextStyle}>
+        {ATT}
+      </text>
       <circle {...ATT_SEPARATOR_PROPS} />
       <text {...FOR_TEXT_PROPS}>{FOR}</text>
-      <text {...DEF_TEXT_PROPS}>{DEF}</text>
+      <text {...DEF_TEXT_PROPS} {...concentrationIconTextStyle}>
+        {DEF}
+      </text>
       <circle {...DEF_SEPARATOR_PROPS} />
       <text {...RES_TEXT_PROPS}>{RES}</text>
-      <text {...COU_TEXT_PROPS}>{PEU || COU}</text>
+      <text {...COU_TEXT_PROPS} {...(!PEU && concentrationIconTextStyle)}>
+        {PEU || COU}
+      </text>
       <circle {...COU_SEPARATOR_PROPS} />
       <text {...DIS_TEXT_PROPS}>{DIS}</text>
       <image {...DEF_ICON_PROPS} href={hrefs.defIcon} />
@@ -105,6 +132,7 @@ export const CharacterCard = ({ characterProfile, championName }: PropTypes) => 
         specialEffects={specialEffects}
         localStuff={localStuff}
       />
+      <text {...REFERENCE_TEXT_PROPS}>{`${queryVersion}-${queryProfile}`}</text>
     </svg>
   );
 };

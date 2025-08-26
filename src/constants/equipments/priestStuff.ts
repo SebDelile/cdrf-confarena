@@ -20,7 +20,7 @@ export const priestStuff: EquipmentType[] = [
     name: 'Instrument liturgique',
     caracModifs: [],
     capacities: [],
-    specialEffect: '+1 FT au déploiement/résurrection et à chaque phase mystique',
+    specialEffects: '+1 FT au déploiement/résurrection et à chaque phase mystique',
     cost: 4,
   },
   {

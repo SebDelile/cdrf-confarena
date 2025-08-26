@@ -12,7 +12,7 @@ type PropTypes = {
 };
 
 export const EquipmentRenderer = ({ value }: PropTypes) => {
-  const { name, caracModifs, capacities, specialEffect, cost, remoteWeapon, restrictions } = value;
+  const { name, caracModifs, capacities, specialEffects, cost, remoteWeapon, restrictions } = value;
   const [classe, faction]: [ProfileType, FactionType] = useWatch({ name: ['classe', 'faction'] });
   const isDisabled = getIsRestricted(restrictions, classe?.name, faction);
   const title = isDisabled ? formatRestrictionExplanations(restrictions) : undefined;
@@ -23,7 +23,7 @@ export const EquipmentRenderer = ({ value }: PropTypes) => {
         <div>
           <span className="font-semibold pr-2">{`${name} : `}</span>
           <span>
-            {[remoteWeapon, formatCaracModifiers(caracModifs), formatCapacities(capacities), specialEffect]
+            {[remoteWeapon, formatCaracModifiers(caracModifs), formatCapacities(capacities), specialEffects]
               .filter(Boolean)
               .join(JOIN_ELEMENT)}
           </span>

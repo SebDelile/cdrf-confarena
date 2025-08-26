@@ -8,6 +8,8 @@ import {
   CARD_USABLE_WIDTH,
   EQUIPMENTS_FONT_PROPS,
   EQUIPMENTS_TEXT_PROPS,
+  SPECIAL_EFFECTS_FONT_PROPS,
+  SPECIAL_EFFECTS_TEXT_PROPS,
 } from '@/constants/card';
 import { splitTextMultiLine } from '@/utils/splitTextMultiLines';
 
@@ -50,6 +52,11 @@ const CharacterCardTextInner = ({ remoteWeapon, capacities, specialEffects, loca
               {line}
             </tspan>
           ))}
+        </text>
+      ) : null}
+      {specialEffects ? (
+        <text {...SPECIAL_EFFECTS_TEXT_PROPS} {...SPECIAL_EFFECTS_FONT_PROPS}>
+          {specialEffects.join(', ')}
         </text>
       ) : null}
     </>

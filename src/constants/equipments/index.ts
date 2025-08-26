@@ -1,9 +1,9 @@
-import { ALLIANCES_FORMATTED, CARACS, CLASSES } from '..';
+import { ALLIANCES, CARACS, CLASSES } from '..';
 
 export type RestrictionType = [
   restrictionType: EQUIPMENT_RESTRICTIONS,
   isAllowed: boolean,
-  relatedItems?: (CLASSES | ALLIANCES_FORMATTED)[],
+  relatedItems?: (CLASSES | ALLIANCES)[],
 ];
 
 export type EquipmentType = {
@@ -12,7 +12,7 @@ export type EquipmentType = {
   capacities: string[];
   cost: number;
   restrictions?: RestrictionType[];
-  specialEffect?: string;
+  specialEffects?: string;
   remoteWeapon?: string;
 };
 

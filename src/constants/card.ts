@@ -73,3 +73,26 @@ export const EQUIPMENTS_TEXT_PROPS = { x: GLOBAL_MARGIN, y: 390 };
 export const EQUIPMENTS_FONT_PROPS = { fontFamily: goudyFont.style.fontFamily, fontSize: '18', fontStyle: 'italic' };
 export const CAPACITIES_TEXT_PROPS = { x: GLOBAL_MARGIN, y: 390 };
 export const CAPACITIES_FONT_PROPS = { fontFamily: goudyFont.style.fontFamily, fontSize: '20' };
+export const SPECIAL_EFFECTS_TEXT_PROPS = {
+  x: CARD_DIMENSIONS.width - GLOBAL_MARGIN,
+  y: CARD_DIMENSIONS.height - GLOBAL_MARGIN,
+  textAnchor: 'end',
+  dominantBaseline: 'text-bottom',
+};
+export const SPECIAL_EFFECTS_FONT_PROPS = {
+  fontFamily: goudyFont.style.fontFamily,
+  fontSize: '20',
+  fontWeight: 'bold',
+  fontStyle: 'italic',
+};
+const REFERENCE_TEXT_X = CARD_DIMENSIONS.width - GLOBAL_MARGIN;
+export const REFERENCE_TEXT_PROPS = {
+  x: REFERENCE_TEXT_X,
+  y: 350,
+  fontFamily: 'arial',
+  fontSize: '12',
+  opacity: '0.75',
+  transform: `rotate(-90,${REFERENCE_TEXT_X},${350})`,
+  dominantBaseline: 'hanging',
+  letterSpacing: 0.8,
+};

@@ -3,8 +3,9 @@ import { FormType } from '@/constants/formStructure';
 
 import { useMemo, useState } from 'react';
 import { useWatch } from 'react-hook-form';
-import { applyProfileModifiers, formatCapacities } from '@/utils';
+import { formatCapacities } from '@/utils';
 import { CharacterCard } from './CharacterCard';
+import { applyProfileModifiers } from '@/utils/applyProfileModifiers';
 
 export const CharacterSheet = () => {
   const [championName, setChampionName] = useState('');
@@ -41,9 +42,9 @@ export const CharacterSheet = () => {
     // set equipment modifiers
     Object.values(equipments).forEach((equipment) => {
       if (equipment) {
-        const { caracModifs, capacities, specialEffect, cost, remoteWeapon } = equipment;
-        // if (remoteWeapon) profile.remoteWeapon = remoteWeapon;
-        applyProfileModifiers(profile, cost, caracModifs, capacities, specialEffect);
+        const { caracModifs, capacities, specialEffects, cost, name } = equipment;
+        const specialEffectsName = specialEffects ? name : undefined;
+        applyProfileModifiers(profile, cost, caracModifs, capacities, specialEffectsName);
       }
     });
 

@@ -45,6 +45,13 @@ export enum ALLIANCES_FORMATTED {
   autresAlliances = 'Autres Alliances',
 }
 
+export const ALLIANCES_MAP: Record<ALLIANCES, ALLIANCES_FORMATTED> = {
+  [ALLIANCES.voieLumiere]: ALLIANCES_FORMATTED.voieLumiere,
+  [ALLIANCES.meandresTenebres]: ALLIANCES_FORMATTED.meandresTenebres,
+  [ALLIANCES.cheminDestin]: ALLIANCES_FORMATTED.cheminDestin,
+  [ALLIANCES.autresAlliances]: ALLIANCES_FORMATTED.autresAlliances,
+};
+
 export enum PEUPLES {
   acheron = 'acheron',
   behemoth = 'behemoth',

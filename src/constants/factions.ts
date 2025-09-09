@@ -162,7 +162,7 @@ export const factions: FactionType[] = [
     grimoire: ['Solaris', 'Chronomancie'],
     baseElements: [lumiere],
     forbiddenElements: [tenebres],
-    litany: 'Noësis',
+    litany: 'la Noësis',
     profileModifs: [
       {
         classes: [all],

@@ -4,7 +4,15 @@ import { ProfileType } from './profiles';
 
 export const JOIN_ELEMENT = ' · ';
 
-export type SelectMenuOptionType = FactionType | EquipmentType | ProfileType | LocalStuffType;
+export type selectOptionStringType = { name: string };
+export type SelectMenuOptionType = FactionType | EquipmentType | ProfileType | LocalStuffType | selectOptionStringType;
+export enum SELECT_MENU_TYPE {
+  FACTION = 'FACTION',
+  EQUIPMENT = 'EQUIPMENT',
+  PROFILE = 'PROFILE',
+  LOCAL_STUFF = 'LOCAL_STUFF',
+  STRINGS = 'STRINGS',
+}
 
 export enum CARACS {
   MOU = 'MOU',
@@ -80,6 +88,17 @@ export enum GEMMES {
   feu = 'Feu',
   terre = 'Terre',
 }
+
+export const DEFAULT_GEMME_GRIMOIRE: Record<
+  'firstElement' | 'secondElement' | 'firstGrimoire' | 'secondGrimoire' | 'espritDe',
+  { name: string } | null
+> = {
+  firstElement: null,
+  secondElement: null,
+  firstGrimoire: null,
+  secondGrimoire: null,
+  espritDe: null,
+};
 
 export enum EQUIPMENT_PARTS {
   oneHandWeapon1Part = 'oneHandWeapon1',

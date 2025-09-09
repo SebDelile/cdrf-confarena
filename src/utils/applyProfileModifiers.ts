@@ -1,4 +1,4 @@
-import { CARACS, CharacterProfileType } from '@/constants';
+import { CARACS, CharacterProfileType, DEFAULT_GEMME_GRIMOIRE, GEMMES } from '@/constants';
 
 export const applyProfileModifiers = (
   profile: CharacterProfileType,
@@ -92,4 +92,51 @@ const removeCapacityInfoText = (capacity: string) => {
     default:
       return capacity;
   }
+};
+
+export const formatFaithCapacity = (profile: CharacterProfileType) => {
+  const index = profile.capacities.findIndex((capacity) => capacity.startsWith('Dévot de son Dieu'));
+  if (index === -1) return;
+  const { litany } = profile?.faction ?? { litany: '' };
+  const prefix = /[aeiouy]/i.test(litany[0]) ? "d'" : 'de ';
+  profile.capacities[index] = `Dévot ${prefix}${litany}/15`;
+};
+
+const getElementPrefixMap = (element: GEMMES) => {
+  switch (element) {
+    case GEMMES.feu:
+      return 'du ';
+    case GEMMES.air:
+    case GEMMES.eau:
+      return "de l'";
+    case GEMMES.terre:
+    case GEMMES.lumiere:
+      return 'de la ';
+    case GEMMES.tenebres:
+      return 'des ';
+    default:
+      return '';
+  }
+};
+
+export const formatMagicCapacities = (
+  profile: CharacterProfileType,
+  magicianCapacities: typeof DEFAULT_GEMME_GRIMOIRE,
+) => {
+  console.log(magicianCapacities);
+  const firstElement = magicianCapacities.firstElement?.name;
+  const firstGrimoire = magicianCapacities.firstGrimoire?.name;
+  const secondElement = magicianCapacities.secondElement?.name;
+  const secondGrimoire = magicianCapacities.secondGrimoire?.name;
+  const elements = [firstElement, secondElement]
+    .filter(Boolean)
+    .map((element) => `${getElementPrefixMap(element as GEMMES)}${element}`)
+    .join(' et ');
+  const grimoires = [firstGrimoire, secondGrimoire].filter(Boolean).join(', ');
+  const indexInitie = profile.capacities.findIndex((capacity) => capacity.startsWith('Initié'));
+  profile.capacities[indexInitie] = `Initié ${elements ? elements : 'élément'}/${grimoires ? grimoires : 'grimoire'}`;
+  //
+  const indexEspritDe = profile.capacities.findIndex((capacity) => capacity.startsWith('Esprit'));
+  const espritDe = magicianCapacities.espritDe?.name ?? 'élément/grimoire';
+  if (indexEspritDe !== -1) profile.capacities[indexEspritDe] = `Esprit de/${espritDe}`;
 };

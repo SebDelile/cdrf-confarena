@@ -95,7 +95,7 @@ export const CharacterCard = ({ characterProfile, championName }: PropTypes) => 
       <image {...ARMY_ICON_PROPS} href={hrefs.armyIcon} />
       <image {...MOU_ICON_PROPS} href={hrefs.mouIcon} />
       <text {...MOU_TEXT_PROPS} {...(hasVol && { letterSpacing: -1.5 })}>
-        {(hasVol ? [MOU, MOU + 5] : [MOU]).map((mou) => String(mou).replace('.', ',')).join('/')}
+        {(hasVol ? [MOU, MOU! + 5] : [MOU]).map((mou) => String(mou).replace('.', ',')).join('/')}
       </text>
       <image {...INI_ICON_PROPS} href={hrefs.iniIcon} />
       <text {...INI_TEXT_PROPS} {...concentrationIconTextStyle}>

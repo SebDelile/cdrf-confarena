@@ -8,14 +8,14 @@ export const magicianStuff: EquipmentType[] = [
     name: 'Grimoire',
     caracModifs: [],
     capacities: [],
-    specialEffect: '2ème grimoire au choix',
+    specialEffects: '2ème grimoire au choix',
     cost: 3,
   },
   {
     name: 'Traité des arcanes',
     caracModifs: [],
     capacities: [],
-    specialEffect: '2ème élément au choix',
+    specialEffects: '2ème élément au choix',
     cost: 3,
   },
   {

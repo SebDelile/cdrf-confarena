@@ -12,7 +12,7 @@ export type EquipmentType = {
   capacities: string[];
   cost: number;
   restrictions?: RestrictionType[];
-  specialEffect?: string;
+  specialEffects?: string;
   remoteWeapon?: string;
 };
 

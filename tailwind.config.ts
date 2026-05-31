@@ -16,15 +16,15 @@ const config: Config = {
     },
     fontFamily: {
       body: ['DM sans', 'sans-serif'],
+      goudy: ['var(--font-goudy)', 'sans-serif'],
+      caslon: ['var(--font-caslonAntique)', 'sans-serif'],
     },
-
 
     extend: {
       colors: {
         primary: '#911a11',
         'primary-contrast': '#EED',
         background: '#ccc',
-
       },
     },
   },

@@ -1,4 +1,4 @@
-import { CLASSES, CARACS, ALLIANCES, GEMMES } from '.';
+import { CLASSES, CARACS, ALLIANCES, GEMMES, PEUPLES } from '.';
 import { FormType } from './formStructure';
 
 const { all, shooter, warriorShooter, magician, warriorMagician, priest, warriorPriest } = CLASSES;
@@ -14,6 +14,7 @@ export type profileModifType = {
 };
 export type LocalStuffType = { name: string; cost: number; options?: keyof FormType };
 export type FactionType = {
+  peuple: PEUPLES;
   name: string;
   alliance: ALLIANCES;
   grimoire: string[];
@@ -26,6 +27,7 @@ export type FactionType = {
 
 export const factions: FactionType[] = [
   {
+    peuple: PEUPLES.dirz,
     name: 'Alchimiste de Dirz',
     alliance: meandresTenebres,
     grimoire: ['Technomancie', 'Biopsie'],
@@ -36,6 +38,7 @@ export const factions: FactionType[] = [
     localStuff: [],
   },
   {
+    peuple: PEUPLES.ophidien,
     name: 'Alliance Ophidienne (serpent)',
     alliance: meandresTenebres,
     grimoire: ['Typhonisme', 'Enskëm'],
@@ -59,6 +62,7 @@ export const factions: FactionType[] = [
     localStuff: [],
   },
   {
+    peuple: PEUPLES.ophidien,
     name: 'Alliance Ophidienne (humain)',
     alliance: meandresTenebres,
     grimoire: ['Typhonisme', 'Enskëm'],
@@ -76,6 +80,7 @@ export const factions: FactionType[] = [
     localStuff: [],
   },
   {
+    peuple: PEUPLES.cadwallon,
     name: 'Cité franche de Cadwallon',
     alliance: autresAlliances,
     grimoire: ['Cartomancie', 'Noire'],
@@ -101,6 +106,7 @@ export const factions: FactionType[] = [
     ],
   },
   {
+    peuple: PEUPLES.devoreur,
     name: 'Dévoreurs de Vile-Tis (wolfen)',
     alliance: meandresTenebres,
     grimoire: ['Hurlements', 'Tourments'],
@@ -126,6 +132,7 @@ export const factions: FactionType[] = [
     ],
   },
   {
+    peuple: PEUPLES.devoreur,
     name: 'Dévoreurs de Vile-Tis (demi-elfe)',
     alliance: meandresTenebres,
     grimoire: ['Hurlements', 'Tourments'],
@@ -149,12 +156,13 @@ export const factions: FactionType[] = [
     ],
   },
   {
+    peuple: PEUPLES.cynwall,
     name: 'Elfes Cynwälls',
     alliance: voieLumiere,
     grimoire: ['Solaris', 'Chronomancie'],
     baseElements: [lumiere],
     forbiddenElements: [tenebres],
-    litany: 'Noësis',
+    litany: 'la Noësis',
     profileModifs: [
       {
         classes: [all],
@@ -176,6 +184,7 @@ export const factions: FactionType[] = [
     ],
   },
   {
+    peuple: PEUPLES.daikinee,
     name: 'Elfes Daikinee',
     alliance: cheminDestin,
     grimoire: ['Féérie', 'Symbiose'],
@@ -201,6 +210,7 @@ export const factions: FactionType[] = [
     ],
   },
   {
+    peuple: PEUPLES.gobelin,
     name: 'Gobelins de No-Dan-Kar',
     alliance: cheminDestin,
     grimoire: ['Sorcellerie', 'Mutations'],
@@ -228,6 +238,7 @@ export const factions: FactionType[] = [
     ],
   },
   {
+    peuple: PEUPLES.griffon,
     name: "Griffons d'Akkylannie",
     alliance: voieLumiere,
     grimoire: ['Théurgie', 'Rédemption', 'Exorcisme'],
@@ -258,6 +269,7 @@ export const factions: FactionType[] = [
     ],
   },
   {
+    peuple: PEUPLES.drune,
     name: 'Keltois du clan des Drunes (humain)',
     alliance: meandresTenebres,
     grimoire: ['Shamanisme', 'Supplices'],
@@ -281,6 +293,7 @@ export const factions: FactionType[] = [
     localStuff: [],
   },
   {
+    peuple: PEUPLES.drune,
     name: 'Keltois du clan des Drunes (Formor)',
     alliance: meandresTenebres,
     grimoire: ['Typhonisme', 'Cabale'],
@@ -307,6 +320,7 @@ export const factions: FactionType[] = [
     ],
   },
   {
+    peuple: PEUPLES.sessair,
     name: 'Keltois du clan des Sesairs',
     alliance: voieLumiere,
     grimoire: ['Shamanisme', 'Druidisme'],
@@ -328,6 +342,7 @@ export const factions: FactionType[] = [
     localStuff: [],
   },
   {
+    peuple: PEUPLES.lion,
     name: "Lions d'Alahan",
     alliance: voieLumiere,
     grimoire: ['hermétisme', 'Circæus'],
@@ -351,6 +366,7 @@ export const factions: FactionType[] = [
     localStuff: [],
   },
   {
+    peuple: PEUPLES.acheron,
     name: "Morts-vivants d'Achéron (mort-vivant)",
     alliance: meandresTenebres,
     grimoire: ['Nécromancie', 'Circæus'],
@@ -383,6 +399,7 @@ export const factions: FactionType[] = [
     ],
   },
   {
+    peuple: PEUPLES.acheron,
     name: "Morts-vivants d'Achéron (vivant)",
     alliance: meandresTenebres,
     grimoire: ['Nécromancie', 'Circæus'],
@@ -410,6 +427,7 @@ export const factions: FactionType[] = [
     ],
   },
   {
+    peuple: PEUPLES.midnor,
     name: 'Nains de Mid-Nor',
     alliance: meandresTenebres,
     grimoire: ['Chtonienne', 'Corruption'],
@@ -436,6 +454,7 @@ export const factions: FactionType[] = [
     localStuff: [],
   },
   {
+    peuple: PEUPLES.tirnabor,
     name: 'Nains de Tir-Nâ-Bor',
     alliance: voieLumiere,
     grimoire: ['Tellurique', 'Forge', 'Lithomancie'],
@@ -460,6 +479,7 @@ export const factions: FactionType[] = [
     ],
   },
   {
+    peuple: PEUPLES.branokor,
     name: 'Orques du Bran-ô-Kor',
     alliance: cheminDestin,
     grimoire: ['Magie instinctive'],
@@ -480,6 +500,7 @@ export const factions: FactionType[] = [
     ],
   },
   {
+    peuple: PEUPLES.behemoth,
     name: 'Orques du Béhémoth',
     alliance: cheminDestin,
     grimoire: ['Magie instinctive'],
@@ -497,6 +518,7 @@ export const factions: FactionType[] = [
     localStuff: [],
   },
   {
+    peuple: PEUPLES.wolfen,
     name: "Wolfen d'Yllia",
     alliance: cheminDestin,
     grimoire: ['Murmures', 'Lamentations'],

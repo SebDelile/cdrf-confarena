@@ -1,5 +1,5 @@
-import { CARACS, CharacterProfileType, JOIN_ELEMENT } from '@/constants';
-import { RestrictionType } from '@/constants/equipments';
+import { ALLIANCES, ALLIANCES_MAP, CARACS, JOIN_ELEMENT } from '@/constants';
+import { EQUIPMENT_RESTRICTIONS, RestrictionType } from '@/constants/equipments';
 import { formFieldsSequence } from '@/constants/formStructure';
 
 export const formatCaracModifiers = (caracmodifiers: [CARACS, number][]) =>
@@ -24,29 +24,18 @@ export const formatRestrictionExplanations = (restrictions: RestrictionType[]) =
     .map((restrictionType, index) =>
       restrictionType.length
         ? `${index ? 'Interdit à: ' : 'Réservé à: '} ${restrictionType
-            .map((restriction) => restriction[2]?.join(', ') ?? restriction[0])
+            .map(
+              (restriction) =>
+                restriction[2]
+                  ?.map((rest) =>
+                    restriction[0] === EQUIPMENT_RESTRICTIONS.alliance ? ALLIANCES_MAP[rest as ALLIANCES] : rest,
+                  )
+                  .join(', ') ?? restriction[0],
+            )
             .join(JOIN_ELEMENT)}`
         : '',
     )
     .join('\n');
-
-export const applyProfileModifiers = (
-  profile: CharacterProfileType,
-  cost: number,
-  caracModifs: [CARACS, number][],
-  capacities: string[],
-  specialEffect?: string,
-): void => {
-  if (caracModifs.length) {
-    caracModifs.forEach(([carac, modifier]) => {
-      const currentCarac = profile.caracs[carac];
-      if (currentCarac !== null) profile.caracs[carac] = currentCarac + modifier;
-    });
-  }
-  if (capacities.length) profile.capacities.push(...capacities);
-  if (specialEffect) profile.specialEffects.push(specialEffect);
-  profile.cost += cost;
-};
 
 export const binToAlphaNum = (bin: string): string => BigInt('0b' + bin).toString(36);
 

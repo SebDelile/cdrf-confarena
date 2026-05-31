@@ -26,9 +26,6 @@ import {
   NAME_TEXT_PROPS,
   CLASS_TEXT_PROPS,
   REFERENCE_TEXT_PROPS,
-  MOU_GROUND_TEXT_PROPS,
-  MOU_SEPARATOR_PROPS,
-  MOU_FLY_TEXT_PROPS,
 } from '@/constants/card';
 import { goudyFont } from '@/utils/fonts';
 import { CharacterCardText } from './CharacterCardText';
